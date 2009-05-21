@@ -1,0 +1,29 @@
+open www.ams.ubc.ca
+Badminton
+cw4272
+
+mput ..\ams\*
+
+mkdir imgs
+cd imgs
+mput ..\ams\imgs\*
+
+cd ..
+
+mkdir include
+cd include
+mput ..\ams\include\*
+
+cd ..
+
+mkdir scripts
+cd scripts
+mput ..\ams\scripts\*
+
+cd ..
+
+mkdir styles
+cd styles
+mput ..\ams\styles\*
+
+bye

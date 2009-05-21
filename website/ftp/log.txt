@@ -1,0 +1,181 @@
+ftp> Connected to mail.ams.ubc.ca.
+open www.ams.ubc.ca
+220 Microsoft FTP Service
+User (mail.ams.ubc.ca:(none)): 
+331 Password required for Badminton.
+
+230 User Badminton logged in.
+ftp> ftp> 
+Error opening local file ..\ams\..
+Error opening local file ..\ams\...
+mput ..\ams\*
+200 PORT command successful.
+150 Opening ASCII mode data connection for .aboutus.php.swp.
+226 Transfer complete.
+ftp: 12288 bytes sent in 0.00Seconds 12288000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for aboutus.php.
+226 Transfer complete.
+ftp: 3030 bytes sent in 0.00Seconds 3030000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for faq.php.
+226 Transfer complete.
+ftp: 4156 bytes sent in 0.02Seconds 259.75Kbytes/sec.
+Error opening local file ..\ams\imgs.
+Error opening local file ..\ams\include.
+200 PORT command successful.
+150 Opening ASCII mode data connection for index.php.
+226 Transfer complete.
+ftp: 1694 bytes sent in 0.00Seconds 1694000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for membership.php.
+226 Transfer complete.
+ftp: 2368 bytes sent in 0.00Seconds 2368000.00Kbytes/sec.
+Error opening local file ..\ams\pdf.
+200 PORT command successful.
+150 Opening ASCII mode data connection for photo.php.
+226 Transfer complete.
+ftp: 1977 bytes sent in 0.00Seconds 1977000.00Kbytes/sec.
+Error opening local file ..\ams\photo_gallery.
+200 PORT command successful.
+150 Opening ASCII mode data connection for photo_redirect.php.
+226 Transfer complete.
+ftp: 2563 bytes sent in 0.00Seconds 2563000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for schedule.php.
+226 Transfer complete.
+ftp: 1708 bytes sent in 0.00Seconds 1708000.00Kbytes/sec.
+Error opening local file ..\ams\scripts.
+200 PORT command successful.
+150 Opening ASCII mode data connection for sitemap.xml.
+226 Transfer complete.
+ftp: 1613 bytes sent in 0.00Seconds 1613000.00Kbytes/sec.
+Error opening local file ..\ams\styles.
+200 PORT command successful.
+150 Opening ASCII mode data connection for tournament.php.
+226 Transfer complete.
+ftp: 3068 bytes sent in 0.00Seconds 3068000.00Kbytes/sec.
+ftp> ftp> 
+mkdir imgs
+550 imgs: Cannot create a file when that file already exists. 
+ftp> cd imgs
+250 CWD command successful.
+ftp> Error opening local file ..\ams\imgs\..
+Error opening local file ..\ams\imgs\...
+mput ..\ams\imgs\*
+200 PORT command successful.
+150 Opening ASCII mode data connection for bg.jpg.
+226 Transfer complete.
+ftp: 10551 bytes sent in 0.00Seconds 10551000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for close.gif.
+226 Transfer complete.
+ftp: 109 bytes sent in 0.00Seconds 109000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for execs.JPG.
+226 Transfer complete.
+ftp: 79900 bytes sent in 1.69Seconds 47.36Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for favicon.ico.
+226 Transfer complete.
+ftp: 3638 bytes sent in 0.00Seconds 3638000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for floor.jpg.
+226 Transfer complete.
+ftp: 55097 bytes sent in 0.00Seconds 55097000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for header.jpg.
+226 Transfer complete.
+ftp: 36460 bytes sent in 0.00Seconds 36460000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for header.psd.
+226 Transfer complete.
+ftp: 285667 bytes sent in 6.89Seconds 41.46Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for loading.gif.
+226 Transfer complete.
+ftp: 2364 bytes sent in 0.00Seconds 2364000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for osbourne.jpg.
+226 Transfer complete.
+ftp: 34257 bytes sent in 0.00Seconds 34257000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for overlay.png.
+226 Transfer complete.
+ftp: 279 bytes sent in 0.00Seconds 279000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for serve.jpg.
+226 Transfer complete.
+ftp: 149947 bytes sent in 3.42Seconds 43.82Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for UBC logo.jpg.
+226 Transfer complete.
+ftp: 3398 bytes sent in 0.00Seconds 3398000.00Kbytes/sec.
+ftp> ftp> 
+cd ..
+250 CWD command successful.
+ftp> ftp> 
+mkdir include
+550 include: Cannot create a file when that file already exists. 
+ftp> cd include
+250 CWD command successful.
+ftp> Error opening local file ..\ams\include\..
+Error opening local file ..\ams\include\...
+mput ..\ams\include\*
+200 PORT command successful.
+150 Opening ASCII mode data connection for footer.php.
+226 Transfer complete.
+ftp: 92 bytes sent in 0.00Seconds 92000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for header.php.
+226 Transfer complete.
+ftp: 57 bytes sent in 0.00Seconds 57000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for html_head.php.
+226 Transfer complete.
+ftp: 2022 bytes sent in 0.00Seconds 2022000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for navigation.php.
+226 Transfer complete.
+ftp: 683 bytes sent in 0.00Seconds 683000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for PhotoGalleryXmlParser.php.
+226 Transfer complete.
+ftp: 2424 bytes sent in 0.00Seconds 2424000.00Kbytes/sec.
+ftp> ftp> 
+cd ..
+250 CWD command successful.
+ftp> ftp> 
+mkdir scripts
+550 scripts: Cannot create a file when that file already exists. 
+ftp> cd scripts
+250 CWD command successful.
+ftp> Error opening local file ..\ams\scripts\..
+Error opening local file ..\ams\scripts\...
+mput ..\ams\scripts\*
+200 PORT command successful.
+150 Opening ASCII mode data connection for lightbox.js.
+226 Transfer complete.
+ftp: 12643 bytes sent in 0.00Seconds 12643000.00Kbytes/sec.
+ftp> ftp> 
+cd ..
+250 CWD command successful.
+ftp> ftp> 
+mkdir styles
+550 styles: Cannot create a file when that file already exists. 
+ftp> cd styles
+250 CWD command successful.
+ftp> Error opening local file ..\ams\styles\..
+Error opening local file ..\ams\styles\...
+mput ..\ams\styles\*
+200 PORT command successful.
+150 Opening ASCII mode data connection for lightbox.css.
+226 Transfer complete.
+ftp: 656 bytes sent in 0.00Seconds 656000.00Kbytes/sec.
+200 PORT command successful.
+150 Opening ASCII mode data connection for main.css.
+226 Transfer complete.
+ftp: 2639 bytes sent in 0.00Seconds 2639000.00Kbytes/sec.
+ftp> ftp> 
+bye
+221  
