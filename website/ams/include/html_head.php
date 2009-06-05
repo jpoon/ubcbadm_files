@@ -43,7 +43,6 @@ echo $htmlTitle;
 <link rel="stylesheet" href="styles/lightbox.css" type="text/css" />
 <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="scripts/lightbox.js"></script>
-
 <?php # Google Analytics ?>
 <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

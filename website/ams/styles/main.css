@@ -26,6 +26,22 @@ a:hover {
     clear:both;
 }
 
+/* Header */
+#header {
+    width:960px;
+    height:100px;
+    position:relative;    
+    background:#c7c7c7 url(../imgs/header.jpg) no-repeat;
+}
+
+#searchBox {
+    position:absolute;
+    bottom:0;
+    right:0;
+    vertical-align:bottom;
+    padding:15px;
+}
+
 /* Navigation */
 #navigationTable {
 	margin:20px 0px 30px 2px;
