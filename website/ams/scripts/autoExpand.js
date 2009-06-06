@@ -6,7 +6,7 @@
 // March 27th, 08': Added ability for certain headers to get its contents remotely from an external file via Ajax (2 variables below to customize)
 // -------------------------------------------------------------------
 
-var switchcontent_ajax_msg='<em>Loading Ajax content...</em>' //Customize message to show while fetching Ajax content (if applicable)
+var switchcontent_ajax_msg='<em>Loading...</em>' //Customize message to show while fetching Ajax content (if applicable)
 var switchcontent_ajax_bustcache=true //Bust cache and refresh fetched Ajax contents when page is reloaded/ viewed again?
 
 function switchcontent(className, filtertag){
