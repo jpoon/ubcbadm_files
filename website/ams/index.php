@@ -33,7 +33,7 @@ require_once (dirname( __FILE__ ) . '\include\html_head.php');
             <div id="rightcontent">
 	        	<h2>Summer Break</h2>
                 <span class="date">May 2, 2009</span>
-                School's Out! Thanks for a wonderful badminton-filled year. Be sure to drop by our sign-up booth during Club Days in September! 
+                School's Out! Thanks for a wonderful badminton-filled year. Be sure to drop by our sign-up booth during Club Days in September 2009! In the meantime, you can drop-in at the SRC to meet your badminton needs.
                 <p></p>
 
             </div>

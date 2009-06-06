@@ -18,7 +18,7 @@ require_once (dirname( __FILE__ ) . '\include\html_head.php');
             <script type="text/javascript">
                 var googleSearchIframeName = "cse-search-results";
                 var googleSearchFormName = "cse-search-box";
-                var googleSearchFrameWidth = 700;
+                var googleSearchFrameWidth = 756;
                 var googleSearchDomain = "www.google.com";
                 var googleSearchPath = "/cse";
             </script>
