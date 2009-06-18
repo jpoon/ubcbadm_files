@@ -38,10 +38,6 @@
 var loadingImage = '../imgs/loading.gif';		
 var closeButton = '../imgs/close.gif';		
 
-
-
-
-
 //
 // getPageScroll()
 // Returns array with x,y page scroll values.
@@ -62,8 +58,6 @@ function getPageScroll(){
 	arrayPageScroll = new Array('',yScroll) 
 	return arrayPageScroll;
 }
-
-
 
 //
 // getPageSize()
@@ -117,7 +111,6 @@ function getPageSize(){
 	return arrayPageSize;
 }
 
-
 //
 // pause(numberMillis)
 // Pauses code execution for specified time. Uses busy code, not good.
@@ -137,7 +130,6 @@ function pause(numberMillis) {
 // getKey(key)
 // Gets keycode. If 'x' is pressed then it hides the lightbox.
 //
-
 function getKey(e){
 	if (e == null) { // ie
 		keycode = event.keyCode;
@@ -149,13 +141,11 @@ function getKey(e){
 	if(key == 'x'){ hideLightbox(); }
 }
 
-
 //
 // listenKey()
 //
 function listenKey () {	document.onkeypress = getKey; }
 	
-
 //
 // showLightbox()
 // Preloads images. Pleaces new image in lightbox then centers and displays.
@@ -242,10 +232,6 @@ function showLightbox(objLink)
 	
 }
 
-
-
-
-
 //
 // hideLightbox()
 //
@@ -268,9 +254,6 @@ function hideLightbox()
 	// disable keypress listener
 	document.onkeypress = '';
 }
-
-
-
 
 //
 // initLightbox()
@@ -406,12 +389,7 @@ function initLightbox()
 	objKeyboardMsg.setAttribute('id','keyboardMsg');
 	objKeyboardMsg.innerHTML = 'press <a href="#" onclick="hideLightbox(); return false;"><kbd>x</kbd></a> to close';
 	objLightboxDetails.appendChild(objKeyboardMsg);
-
-
 }
-
-
-
 
 //
 // addLoadEvent()
@@ -429,9 +407,6 @@ function addLoadEvent(func)
 		func();
 		}
 	}
-
 }
-
-
 
 addLoadEvent(initLightbox);	// run initLightbox onLoad
