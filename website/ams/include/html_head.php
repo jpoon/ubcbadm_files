@@ -21,10 +21,6 @@ switch(basename($_SERVER['PHP_SELF'], ".php" )) {
         $htmlTitle .= " - Club Membership";
         break;
 
-    case "faq":
-        $htmlTitle .= " - Frequently Asked Questions";
-        break;
-
     case "tournament":
         $htmlTitle .= " - Open Tournament";
         break;
@@ -36,8 +32,8 @@ switch(basename($_SERVER['PHP_SELF'], ".php" )) {
 echo $htmlTitle;
 ?>
 </title>
-<meta name="description" content="The UBC Badminton Club is a student-organized club providing UBC students, faculty, and friends with an environment to play, learn, and practice the sport of badminton." />
-<meta name="keywords" content="badminton, racquet, shuttlecock, birdie, UBC, British Columbia, Vancouver, Osbourne, AMS" />
+<meta name="description" content="UBC Badminton Club - providing UBC students, faculty, and friends with an environment to play, learn, and practice the sport of badminton." />
+<meta name="keywords" content="badminton, racket, racquet, shuttlecock, birdie, UBC, British Columbia, Vancouver, Osbourne, AMS" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" />
 <link rel="stylesheet" href="styles/lightbox.css" type="text/css" />
@@ -51,4 +47,5 @@ echo $htmlTitle;
     var pageTracker = _gat._getTracker("UA-5681575-1");
     pageTracker._trackPageview();
 </script>
+<meta name="verify-v1" content="DMbBhXhEJihaTOJHBNwQG2rx5SbKU62DlnUDY75xmuA=" >
 </head>

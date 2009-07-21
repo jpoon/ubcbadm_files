@@ -106,10 +106,13 @@ a:hover {
     float:right;
 	width:200px;
     margin:20px 10px 0px 0px;
-	padding:20px 10px 20px 10px;
+	padding:18px 10px 20px 10px;
 	border:1px dashed #000000;
 	background:#e4ecd9;
 	line-height:16px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    behavior:url(border-radius.htc);
 }
 
 #footer {
@@ -146,6 +149,15 @@ h2 {
 h4 {
 }
 
+.photoGroup {
+    font-weight:bold;
+    font-size:12px;
+    color:#993300;
+    letter-spacing:1px;
+    margin:0px;
+    text-decoration:none;
+}
+
 .date {
 	font-size:11px;
 	font-weight: normal;
@@ -166,22 +178,16 @@ h4 {
     margin:0px 15px 0px 0px;
 }
 
-#imgUbcLogo {
-    float:left;
-    margin:12px 15px 10px 0px;
-    height:80px;
-}
-
 #img07Execs {
     float:right;
-    width:310px;
-    margin:0px 170px 0px 0px;
+    width:350px;
+    margin:0px 120px 0px 0px;
 }
 
 #imgServe {
     float:right;
-    margin:0px 0px 20px 20px;
-    width:320px;
+    margin:0px 0px 20px 25px;
+    width:330px;
 }
 
 #imgOsbourne {

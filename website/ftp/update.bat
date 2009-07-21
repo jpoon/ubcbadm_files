@@ -1,2 +1,1 @@
-@echo off
-ftp -i -s:ftp.txt > log.txt
+ftp -i -s:ftp.txt

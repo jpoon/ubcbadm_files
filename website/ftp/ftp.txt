@@ -2,28 +2,30 @@ open www.ams.ubc.ca
 Badminton
 cw4272
 
-mput ..\ams\*
+mput ..\ams\*.php
+mput ..\ams\*.xml
 
 mkdir imgs
 cd imgs
-mput ..\ams\imgs\*
+mput ..\ams\imgs\*.jpg
+mput ..\ams\imgs\*.gif
 
 cd ..
 
 mkdir include
 cd include
-mput ..\ams\include\*
+mput ..\ams\include\*.php
 
 cd ..
 
 mkdir scripts
 cd scripts
-mput ..\ams\scripts\*
+mput ..\ams\scripts\*.js
 
 cd ..
 
 mkdir styles
 cd styles
-mput ..\ams\styles\*
+mput ..\ams\styles\*.css
 
 bye

@@ -31,11 +31,6 @@
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://www.ams.ubc.ca/clubs/badminton/faq.php</loc>
-  <priority>0.80</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
   <loc>http://www.ams.ubc.ca/clubs/badminton/tournament.php</loc>
   <priority>0.80</priority>
   <changefreq>monthly</changefreq>
@@ -43,11 +38,6 @@
 <url>
   <loc>http://www.ams.ubc.ca/clubs/badminton/photo.php</loc>
   <priority>0.80</priority>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://www.ams.ubc.ca/clubs/badminton/pdf/21-point.pdf</loc>
-  <priority>0.64</priority>
   <changefreq>monthly</changefreq>
 </url>
 </urlset>

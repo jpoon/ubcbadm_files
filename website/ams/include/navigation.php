@@ -13,9 +13,6 @@
 			<td><a href="membership.php" title="Membership">membership</a></td>
 		</tr>
 		<tr>
-			<td><a href="faq.php" title="FAQ">faq</a></td>
-		</tr>
-		<tr>
 			<td><a href="tournament.php" title="Tournament">tournament</a></td>
 		</tr>
 		<tr>

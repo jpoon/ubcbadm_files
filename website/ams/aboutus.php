@@ -1,32 +1,26 @@
 <?php
-require_once (dirname( __FILE__ ) . '\include\html_head.php');
+require_once ('include/html_head.php');
 ?>
 <body>
 <div id="container">
     <?php
-    require_once (dirname( __FILE__ ) . '\include\header.php');
+    require_once ('include/header.php');
     ?>
 
     <div id="contentContainer">
 
         <?php
-        require_once (dirname(__FILE__) . '\include\navigation.php');
+        require_once ('include/navigation.php');
     	?>	
     
         <div id="content">
 	    	<h1>About Us</h1>
 
-		    <img src="imgs/UBC logo.jpg" id="imgUbcLogo" alt="UBC Logo" />
-
-          	<p>Whether you've just been introduced to the sport or you feel like
-	        the badminton racquet is an extension of your arm, come out and join
-            us at one of our many gym nights for hours of badminton fun!</p>
-
             <p>The University of British Columbia (UBC) Badminton Club is a registered 
             AMS club at the University of British Columbia in Vancouver, British 
-            Columbia, Canada. The club is wholly administered by students whose aim is 
-            to promote and encourage the sport of badminton. As such, players of all 
-            skill-level are invited to join.</p>
+            Columbia, Canada. The club is wholly administered and organized by a group
+            of passionate badminton players who are commited to promoting and
+            encouraging the sport of badminton. </p>
 
     		<h1>Executives</h1>
 		
@@ -89,15 +83,15 @@ require_once (dirname( __FILE__ ) . '\include\html_head.php');
     		<h1>Contact Us</h1>
 	    	<p>If you think the badminton club is
 		    <i>absolutely-most-indefinitely-the-most-fun-and-awesomely-awesome-club-ever</i>!
-            or if you have any ideas or suggestions feel free to let us know by speaking with
-            one of our executives or if you prefer typing, you can either send us an 
-            <a href="mailto: ubc.badm@gmail.com">email</a> or poke us on <a
-			href="http://www.facebook.com/group.php?gid=17284952088">Facebook</a>.
+            or if you have any ideas or suggestions on how we might better ourselves, feel 
+            free to let us know. Our email is 
+            <a href="mailto: ubc.badm@gmail.com">ubc.badm [at] gmail [dot] com</a> or poke us on 
+            <a href="http://www.facebook.com/group.php?gid=17284952088">Facebook</a>.
     		</p>
         </div>
     </div>
 	<?php
-	require_once (dirname(__FILE__) . '\include\footer.php');
+	require_once ('include/footer.php');
     ?>
 </div>
 </body>

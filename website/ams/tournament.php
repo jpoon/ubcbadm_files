@@ -1,44 +1,44 @@
 <?php
-require_once (dirname(__FILE__) . '\include\html_head.php');
+require_once ('include/html_head.php');
 ?>
 <body>
 <div id="container">
 
     <?php
-    require_once (dirname(__FILE__) . '\include\header.php');
+    require_once ('include/header.php');
     ?>
 
     <div id="contentContainer">
 
         <?php
-        require_once (dirname(__FILE__) . '\include\navigation.php');
+        require_once ('include/navigation.php');
     	?>	
 
     <div id="content">
 		<div id="centercontent">
 		<h1>Open Tournament</h1>
-		<p>Mark your calendars for the annual UBC Badminton Club Open Tournament! Play for the fun, play for the glory, play for the joy of playing.
+		<p>Mark your calendars for the annual UBC Badminton Club Open Tournament! Play for the fun or play for the glory.
 		We encourage players of all levels to join as there will be a intermediate and advanced division but remember that space is limited! </p>
 			
 		<h2>Entry Costs</h2><br/>
 		<table border="1">
 			<tr>
-				<td width="150px">Entry Cost For Each Subsequent Event</td>
-				<td width="60px">1st Event</td>
-				<td width="60px">2nd Event</td>
-				<td width="60px">3rd Event</td>
+				<td width="170px">Total Entry Cost if Playing...</td>
+				<td width="60px">1 Event</td>
+				<td width="60px">2 Events</td>
+				<td width="60px">3 Events</td>
 			</tr>		
 			<tr>
 				<td>Members:</td>
 				<td>$10</td>
-				<td>$5</td>
-				<td>free</td>
+				<td>$15</td>
+				<td>$18</td>
 			</tr>
 			<tr>
 				<td>Non-Members:</td>
-				<td>$13</td>
-				<td>$10</td>
-				<td>$7</td>
+				<td>$12</td>
+				<td>$22</td>
+				<td>$30</td>
 			</tr>
 		</table>
 		<br /> 
@@ -83,25 +83,25 @@ require_once (dirname(__FILE__) . '\include\html_head.php');
 			<li>Players are guaranteed 2 matches
 			<li>Feather birds (2 per match) provided for advanced
 			<li>Plastic birds (1 per match) provided for intermediate
-			<li>15min default rule will be strictly adhered to
-			<li>Please arrive at least 30 minutes before your first match to allow for warm-up and sign-in time
+			<li>15min default rule will be strictly enforced
+			<li>Please arrive at least 30 minutes prior to your first match to allow for warm-up and sign-in time
 		</ul>
 
 		<h2>Registration</h2>
-		<p>The deadline for registration is February 13, 2009; first come, first serve. A waiting list will be set up if an event is full.</p>
+		<p>The deadline for registration is February 13, 2009; first come, first serve.</p>
 		<p>Register for the tournament <a href="http://ubcbadminton.x10hosting.com/" target="_blank">here</a>.</p>
 		
 		</div>
 		
 		<div id="rightcontent">		
 			<h2>Registration</h2>
-			<p>Stay tunes for the 2010 version of the Club Open Tournament.</p>
+			<p>Stay tuned for the 2010 version of the Club Open Tournament.</p>
 		</div>
 	</div>
     </div>
 
     <?php
-    require_once (dirname(__FILE__) . '\include\footer.php');
+    require_once ('include/footer.php');
     ?>
 
 </div>

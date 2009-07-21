@@ -1,16 +1,16 @@
 <?php
-require_once (dirname( __FILE__ ) . '\include\html_head.php');
+require_once ('include/html_head.php');
 ?>
 <body>
 <div id="container">
     <?php
-    require_once (dirname( __FILE__ ) . '\include\header.php');
+    require_once ('include/header.php');
     ?>
 
     <div id="contentContainer">
 
         <?php
-        require_once (dirname(__FILE__) . '\include\navigation.php');
+        require_once ('include/navigation.php');
     	?>	
 
         <div id="content">
@@ -27,7 +27,7 @@ require_once (dirname( __FILE__ ) . '\include\html_head.php');
         <div class="clear"></div>
     </div>
     <?php
-    require_once (dirname(__FILE__) . '\include\footer.php');
+    require_once ('include/footer.php');
     ?>
 
 </div>

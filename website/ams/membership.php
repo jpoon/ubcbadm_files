@@ -1,17 +1,17 @@
 <?php
-require_once (dirname(__FILE__) . '\include\html_head.php');
+require_once ('include/html_head.php');
 ?>
 
 <body>
 <div id="container">
     <?php
-    require_once (dirname(__FILE__) . '\include\header.php');
+    require_once ('include/header.php');
     ?>
 
     <div id="contentContainer">
 
         <?php
-        require_once (dirname(__FILE__) . '\include\navigation.php');
+        require_once ('include/navigation.php');
     	?>	
 
         <div id="content">
@@ -30,25 +30,25 @@ require_once (dirname(__FILE__) . '\include\html_head.php');
 				    <td>$40</td>
     			</tr>
 	    	</table>
-		    <p>Membership fills up quickly, so early registration is recommended.</p>
+            <p>Due to limited gym space, we are only able to accomodate a certain number of members year. 
+            Membership will be given on a first come-first served basis.</p>
 
     		<h1>Membership Benefits</h1>
-	    	<p>The UBC Badminton Club offers its members a plethora of benefits
-		    including:</p>
+	    	<p>The UBC Badminton Club offers its members a plethora of benefits including:</p>
     		<ul type="circle">
-	    		<li>pizza/pop nights</li>
-		    	<li>plastic birdies are supplied</li>
-			    <li>feather nights</li>
+	    		<li>food nights</li>
+		    	<li>all necessary equipment provided (i.e. racquets available; nylon shuttlecocks provided)</li>
+			    <li>feather nights where we supply feather shuttlecocks for play</li>
                 <li>members-only tournament</li>
-                <li>discount registration fees for open tournaments</li>
+                <li>discounted open tournament registration fees</li>
     			<li>recreational and competitive touraments for all levels of play</li>
 	    		<li>meet new people in a friendly, social atmosphere</li>
     			<li>organized queue board system allowing you to view other players' levels</li>
 	    		<li>over 40 gym nights throughout the year</li>
-    			<li>skill clinics</li>
-	    	</ul>
-    		<h1>Drop-Ins</h1>
-	    	<p>Not a member? Drop-ins are welcome! The drop-in fees are as follows:</p>
+            </ul>
+
+    		<h1>Drop-In</h1>
+	    	<p>Not a member? Drop-ins are welcome! Drop-in fees are as follows:</p>
 
     		<table border="1">
 	    		<tr>
@@ -67,7 +67,7 @@ require_once (dirname(__FILE__) . '\include\html_head.php');
         </div>
     </div>
 <?php
-require_once (dirname(__FILE__) . '\include\footer.php');
+require_once ('include/footer.php');
 ?>
 
 </div>
