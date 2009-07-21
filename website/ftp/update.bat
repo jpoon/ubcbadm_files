@@ -37,7 +37,7 @@ echo     Total Progress: ÛÛ²²²²²²²²²²²²²²²²²² 10%%
 echo.
 echo.
 echo FTP server login credentials 
-set /p username=Username:
+set /p username=Username: 
 
 cls
 echo.
@@ -95,7 +95,7 @@ echo.
 echo     Total Progress: ÛÛÛÛÛÛ²²²²²²²²²²²²²² 50%%
 echo.
 echo.
-echo     Updating AMS web server...
+echo     Updating AMS web server. This may take awhile...
 
 echo FTP Commands > log.txt
 echo --------------- >> log.txt
@@ -120,8 +120,7 @@ echo.
 echo     Total Progress: ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ² 99%%
 echo.
 echo.
-echo     Done. Log file = log.txt
-echo.
+echo     Done. Logs stored in log.txt.
 echo.
 
 del script.dat > nul
