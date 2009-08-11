@@ -85,7 +85,7 @@ require_once ('include/html_head.php');
 		    <i>absolutely-most-indefinitely-the-most-fun-and-awesomely-awesome-club-ever</i>!
             or if you have any ideas or suggestions on how we might better ourselves, feel 
             free to let us know. Our email is 
-            <a href="mailto: ubc.badm@gmail.com">ubc.badm [at] gmail [dot] com</a> or poke us on 
+            <a href="mailto: ubc.badm@gmail.com">ubc.badm@gmail.com</a> or poke us on 
             <a href="http://www.facebook.com/group.php?gid=17284952088">Facebook</a>.
     		</p>
         </div>

@@ -22,7 +22,7 @@ require_once ('include/html_head.php');
 			
 		<h2>Entry Costs</h2><br/>
 		<table border="1">
-			<tr>
+			<tr class="yellow">
 				<td width="170px">Total Entry Cost if Playing...</td>
 				<td width="60px">1 Event</td>
 				<td width="60px">2 Events</td>
@@ -47,7 +47,7 @@ require_once ('include/html_head.php');
 		<p>Please note that the below schedule is tentative and is subject to change at the discretion of UBC Badminton Club.</p>
 
 		<table border="1">
-			<tr>
+			<tr class="yellow">
 				<td width="60px">Date</td>
 				<td width="75px">Time</td>
 				<td width="200px">Events</td>
