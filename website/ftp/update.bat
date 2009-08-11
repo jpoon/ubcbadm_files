@@ -72,7 +72,7 @@ echo.
 echo     Total Progress: ÛÛÛÛÛÛ²²²²²²²²²²²²²² 30%%
 echo.
 echo.
-echo     Building script...
+echo     Building ftp script...
 
 
 echo open www.ams.ubc.ca > script.dat
