@@ -1,0 +1,79 @@
+/* Global Styles */
+* {
+    font-family:Segou UI, Arial, sans-serif;
+}
+
+body {
+    background-color:#c7c7c7;
+    background-image:url(../imgs/bg.jpg);
+    background-repeat:repeat-x;
+    font-size:13px;
+}
+
+table {
+    border-collapse:collapse;
+    font-size:15px;
+}
+
+#container {
+    margin:0px auto;
+    padding:15px;
+    width:560px;
+    overflow:hidden;
+    background-color:#FFFFFF;
+    border:1px solid #000000;
+}
+
+#footer {
+    font-size:11px;
+    text-align:right;
+    padding:4px 10px 6px 0px;
+}
+
+    #footer a {
+        text-decoration:none;
+    }
+
+#errorMsg {
+    background-color:#f578a1;
+    border:1px solid red;
+    padding:10px;
+    margin-bottom:15px;
+}
+
+#errorMsg p {
+    margin:4px;
+}
+
+#registerForm {
+    width:100%;
+}
+
+    #registerForm tr {
+        height:60px;
+    }
+
+    #registerForm td {
+        padding:5px;
+    }
+
+.formLabel {
+    width:120px;
+    text-align:right;
+    vertical-align:middle;
+}
+
+.formError {
+    width:175px;
+    text-align:left;
+    font-size:12px;
+    vertical-align:middle;
+}
+
+.button {
+    margin:15px 0px 0px 15px;
+}
+
+.clear {
+    clear:both;
+}
