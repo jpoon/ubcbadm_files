@@ -4,47 +4,11 @@ import logging
 
 import itertools 
 from SendMail import *
+from Member import *
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
-from google.appengine.ext import db
 from google.appengine.api import users
-
-class Member(db.Model):
-    lastModDate = db.DateTimeProperty(auto_now_add=True)
-    firstName = db.StringProperty(required=True)
-    lastName = db.StringProperty(required=True)
-    studentNo = db.IntegerProperty(required=True)
-    phoneNumber = db.PhoneNumberProperty(required=True)
-    email = db.EmailProperty(required=True)
-    level = db.StringProperty(required=True, choices=set(["Beginner", "Intermediate I", "Intermediate II", "Advanced"]))
-    memberNo = db.IntegerProperty(required=True)
-
-    @staticmethod
-    def nextAvailableMemberNo():
-        q = Member.all()
-        q.order('-memberNo')
-        top = q.get()
-        try:
-            return top.memberNo + 1
-        except:
-            return 1
-
-    @staticmethod
-    def isValidEmail(email):
-        query = Member.gql("WHERE email= :email", email=email)
-        if query.count() > 0:
-            return False
-        else:
-            return True
-
-    @staticmethod
-    def isValidStudentNo(number):
-        query = Member.gql("WHERE studentNo= :number", number=number)
-        if query.count() > 0:
-            return False
-        else:
-            return True
 
 class FormField(object):
     def __init__(self, label, inputName, value, formType, formOptions):
@@ -137,13 +101,12 @@ class RegisterPage(webapp.RequestHandler):
                             email = email,
                             level = level,
                             memberNo = Member.nextAvailableMemberNo())
-            member.put()
-
+            member.Save()
             self.redirect("/registerDone?key=" + str(member.key()))
 
 class DonePage(webapp.RequestHandler):
     def get(self):
-        key_name = self.request.get('key')
+        key_name = self.request.get("key")
 
         key = db.Key(key_name)
         member = db.get(key)
