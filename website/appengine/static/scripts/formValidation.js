@@ -93,8 +93,7 @@ function validateStudentNo(fld) {
     var stripped = trim(fld.value);
 
     if (fld.value == "") {
-        fldBackground(fld, fieldErrorColor);
-	    error = fld.id + " required"
+        fldBackground(fld, fieldNormalColor);
     } else if (isNaN(stripped)) {
         error = fld.id + " should contain only numeric characters";
         fldBackground(fld, fieldErrorColor);

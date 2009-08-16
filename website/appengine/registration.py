@@ -33,6 +33,12 @@ class RegisterPage(webapp.RequestHandler):
     
     def getFormTemplate(self, formData, messageList):
         it = iter(formData)
+
+        types = []
+        types.append("Student")
+        types.append("Faculty")
+        types.append("Other")
+
         skillLevels = []
         skillLevels.append("Beginner")
         skillLevels.append("Intermediate I")
@@ -42,6 +48,7 @@ class RegisterPage(webapp.RequestHandler):
         formFieldList = []
         formFieldList.append(FormField("First Name", "firstName", RegisterPage.getNext(it), "text", ""))
         formFieldList.append(FormField("Last Name", "lastName", RegisterPage.getNext(it), "text", ""))
+        formFieldList.append(FormField("UBC Affliation", "ubcAffliation", RegisterPage.getNext(it), "radio", types))
         formFieldList.append(FormField("Student No", "studentNo", RegisterPage.getNext(it), "text", ""))
         formFieldList.append(FormField("Phone Number", "phoneNumber", RegisterPage.getNext(it), "text", ""))
         formFieldList.append(FormField("Email", "email", RegisterPage.getNext(it), "text", ""))
@@ -62,14 +69,17 @@ class RegisterPage(webapp.RequestHandler):
     def post(self):
         firstName = self.getInput('firstName')
         lastName = self.getInput('lastName')
+        ubcAffliation = self.getInput('ubcAffliation')
         studentNo = int(self.getInput('studentNo'))
         phoneNumber = db.PhoneNumber(self.getInput('phoneNumber'))
         email = db.Email(self.getInput('email'))
         level = self.getInput('level')
 
+        # must be appended in same order as form
         formData = []
         formData.append(firstName)
         formData.append(lastName)
+        formData.append(ubcAffliation)
         formData.append(studentNo)
         formData.append(phoneNumber)
         formData.append(email)
@@ -96,6 +106,7 @@ class RegisterPage(webapp.RequestHandler):
             self.response.out.write(Member.nextAvailableMemberNo())
             member = Member(firstName = firstName,
                             lastName = lastName,
+                            ubcAffliation = ubcAffliation,
                             studentNo = studentNo,
                             phoneNumber = phoneNumber,
                             email = email,
@@ -114,7 +125,7 @@ class DonePage(webapp.RequestHandler):
         email = SendMail(users.get_current_user().email(),
                          member.email, 
                          'Registration', 
-                         "test")
+                         member.verifyHash)
         email.send()
  
         template_values = {
