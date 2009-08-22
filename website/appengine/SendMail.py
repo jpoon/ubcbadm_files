@@ -6,11 +6,9 @@ class SendMail:
         signature = """
 
         --
-        UBC Badminton Club Team
+        UBC Badminton Club Executive Team
         Web: www.ams.ubc.ca/clubs/badminton
         Email: ubc.badm@gmail.com"""
-
-        logging.info('Creating email to %s' % toEmail)
 
         self.msg = mail.EmailMessage()
         self.msg.sender = fromEmail 
@@ -20,6 +18,7 @@ class SendMail:
 
     def send(self):
         try:
+            logging.info('Sending email to %s' % self.msg.to)
             self.msg.check_initialized()
             self.msg.send()
         except InvalidEmailError:
