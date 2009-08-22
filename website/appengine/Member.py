@@ -15,20 +15,25 @@ class Member(db.Model):
     emailVerified = db.BooleanProperty()
 
     def Save(self):
-        hash = hashlib.sha512()
+        hash = hashlib.md5()
         hash.update(self.email)
         self.emailHash = hash.hexdigest()
         self.put()
 
     @staticmethod
     def nextAvailableMemberNo():
-        q = Member.all()
-        q.order('-memberNo')
-        top = q.get()
-        try:
-            return top.memberNo + 1
-        except:
-            return 1
+        memberList = Member.all()
+        memberList.order('memberNo')
+    
+        prevMemberNo = 0
+        for member in memberList:
+            memberNo = member.memberNo
+            if memberNo == (prevMemberNo + 1):
+                prevMemberNo = memberNo
+            else:
+                break
+
+        return prevMemberNo + 1
 
     @staticmethod
     def isValidEmail(email):
