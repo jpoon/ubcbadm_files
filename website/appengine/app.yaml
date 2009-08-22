@@ -20,3 +20,7 @@ handlers:
   script: registration.py
   login: admin
   secure: always
+
+- url: /emailVerification.*
+  script: emailVerification.py
+

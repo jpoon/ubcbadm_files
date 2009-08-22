@@ -11,12 +11,13 @@ class Member(db.Model):
     email = db.EmailProperty(required=True)
     level = db.StringProperty(required=True, choices=set(["Beginner", "Intermediate I", "Intermediate II", "Advanced"]))
     memberNo = db.IntegerProperty(required=True)
-    verifyHash = db.StringProperty()
+    emailHash = db.StringProperty()
+    emailVerified = db.BooleanProperty()
 
     def Save(self):
         hash = hashlib.sha512()
         hash.update(self.email)
-        self.verifyHash = hash.hexdigest()
+        self.emailHash = hash.hexdigest()
         self.put()
 
     @staticmethod
