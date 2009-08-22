@@ -27,6 +27,22 @@ function validateForm(formId) {
     }
 }
 
+function checkStudentStatus() {
+    ubcAffliation = document.memberRegistration.ubcAffliation;
+    for ( i=0; i<ubcAffliation.length; i++ ) {
+        if( ubcAffliation[i].checked == true ) {
+            if( ubcAffliation[i].value == 'Student' ) {
+                showTr('studentNo_tr');
+                isStudent = true;
+            } else {
+                hideTr('studentNo_tr'); 
+                isStudent = false;
+            }
+            break;
+        }
+    }
+}
+
 function print(labelId, errorMsg) {
     document.getElementById(labelId + "_lbl").innerHTML = errorMsg;
     return errorMsg;
@@ -92,8 +108,14 @@ function validateStudentNo(fld) {
     var error = "";
     var stripped = trim(fld.value);
 
+    checkStudentStatus();
     if (fld.value == "") {
-        fldBackground(fld, fieldNormalColor);
+        if (isStudent == true) {
+            error = fld.id + " required"
+            fldBackground(fld, fieldErrorColor);
+        } else {
+            fldBackground(fld, fieldNormalColor);
+        }
     } else if (isNaN(stripped)) {
         error = fld.id + " should contain only numeric characters";
         fldBackground(fld, fieldErrorColor);

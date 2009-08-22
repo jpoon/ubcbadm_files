@@ -70,7 +70,7 @@ class RegisterPage(webapp.RequestHandler):
         firstName = self.getInput('firstName')
         lastName = self.getInput('lastName')
         ubcAffliation = self.getInput('ubcAffliation')
-        studentNo = int(self.getInput('studentNo'))
+        studentNo = self.getInput('studentNo')
         phoneNumber = db.PhoneNumber(self.getInput('phoneNumber'))
         email = db.Email(self.getInput('email'))
         level = self.getInput('level')
@@ -103,15 +103,18 @@ class RegisterPage(webapp.RequestHandler):
             path = os.path.join(os.path.dirname(__file__), 'templates', 'form.html')
             self.response.out.write(template.render(path, template_values))
         else:
-            self.response.out.write(Member.nextAvailableMemberNo())
             member = Member(firstName = firstName,
                             lastName = lastName,
                             ubcAffliation = ubcAffliation,
-                            studentNo = studentNo,
                             phoneNumber = phoneNumber,
                             email = email,
                             level = level,
-                            memberNo = Member.nextAvailableMemberNo())
+                            memberNo = Member.nextAvailableMemberNo(),
+                            emailVerified = False)
+
+            if ubcAffliation == 'Student':
+                member.studentNo = int(studentNo)
+
             member.Save()
             self.redirect("/registerDone?key=" + str(member.key()))
 
@@ -125,7 +128,7 @@ class DonePage(webapp.RequestHandler):
         email = SendMail(users.get_current_user().email(),
                          member.email, 
                          'Registration', 
-                         member.verifyHash)
+                         member.emailHash)
         email.send()
  
         template_values = {
