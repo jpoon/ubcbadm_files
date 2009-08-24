@@ -109,13 +109,12 @@ class RegisterPage(webapp.RequestHandler):
                             phoneNumber = phoneNumber,
                             email = email,
                             level = level,
-                            memberNo = Member.nextAvailableMemberNo(),
-                            emailVerified = False)
+                            memberNo = Member.nextAvailableMemberNo())
 
             if ubcAffliation == 'Student':
                 member.studentNo = int(studentNo)
 
-            member.Save()
+            member.Create()
             self.redirect("/registerDone?key=" + str(member.key()))
 
 class DonePage(webapp.RequestHandler):
@@ -125,10 +124,15 @@ class DonePage(webapp.RequestHandler):
         key = db.Key(key_name)
         member = db.get(key)
 
+        msgBody =   member.firstName + ', \n\n' \
+                    'Welcome to the UBC Badminton Club! ' \
+                    'In order to verify your email, please click the following link: ' \
+                    + self.request.host_url  + '/activation/' + member.emailHash 
+
         email = SendMail(users.get_current_user().email(),
                          member.email, 
-                         'Registration', 
-                         member.emailHash)
+                         'Registration',
+                         msgBody)
         email.send()
  
         template_values = {

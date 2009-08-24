@@ -2,7 +2,7 @@ import hashlib
 from google.appengine.ext import db
 
 class Member(db.Model):
-    lastModDate = db.DateTimeProperty(auto_now_add=True)
+    createDate = db.DateTimeProperty(auto_now_add=True)
     firstName = db.StringProperty(required=True)
     lastName = db.StringProperty(required=True)
     ubcAffliation = db.StringProperty(required=True, choices=set(["Student", "Faculty", "Other"]))
@@ -14,10 +14,11 @@ class Member(db.Model):
     emailHash = db.StringProperty()
     emailVerified = db.BooleanProperty()
 
-    def Save(self):
+    def Create(self):
         hash = hashlib.md5()
         hash.update(self.email)
         self.emailHash = hash.hexdigest()
+        self.emailVerified = False
         self.put()
 
     @staticmethod
