@@ -3,12 +3,11 @@ from google.appengine.api import mail
 
 class SendMail:
     def __init__(self, fromEmail, toEmail, subject, body):
-        signature = """
-
-        --
-        UBC Badminton Club Executive Team
-        Web: www.ams.ubc.ca/clubs/badminton
-        Email: ubc.badm@gmail.com"""
+        signature = '\n\n' \
+                    '--\n' \
+                    'UBC Badminton Club Executive Team\n' \
+                    'Web: www.ams.ubc.ca/clubs/badminton\n' \
+                    'Email: ubc.badm@gmail.com'
 
         self.msg = mail.EmailMessage()
         self.msg.sender = fromEmail 
