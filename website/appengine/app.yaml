@@ -21,6 +21,6 @@ handlers:
   login: admin
   secure: always
 
-- url: /emailVerification.*
-  script: emailVerification.py
+- url: /activation.*
+  script: activation.py
 
