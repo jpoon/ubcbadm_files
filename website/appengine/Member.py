@@ -1,4 +1,5 @@
 import hashlib
+import logging
 from google.appengine.ext import db
 
 class Member(db.Model):
@@ -20,6 +21,14 @@ class Member(db.Model):
         self.emailHash = hash.hexdigest()
         self.emailVerified = False
         self.put()
+        logging.info('Creating member with id %i' % self.memberNo)
+
+    def getActivateUrl(self, handler):
+        return handler.request.host_url + '/register/activate?verify=' + self.emailHash
+
+    @staticmethod
+    def verifyEmail(hash):
+        query = Member.gql("WHERE emailHash= :hash", hash=hash)
 
     @staticmethod
     def nextAvailableMemberNo():
