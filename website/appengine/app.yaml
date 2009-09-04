@@ -21,6 +21,3 @@ handlers:
   login: admin
   secure: always
 
-- url: /activation.*
-  script: activation.py
-

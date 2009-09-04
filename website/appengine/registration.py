@@ -1,7 +1,6 @@
 import os
 import cgi
 import logging
-
 import itertools 
 from SendMail import *
 from Member import *
@@ -34,6 +33,7 @@ class RegisterPage(webapp.RequestHandler):
     def getFormTemplate(self, formData, messageList):
         it = iter(formData)
 
+        # radio button values
         types = []
         types.append("Student")
         types.append("Faculty")
@@ -45,6 +45,7 @@ class RegisterPage(webapp.RequestHandler):
         skillLevels.append("Intermediate II")
         skillLevels.append("Advanced")
 
+        # building form
         formFieldList = []
         formFieldList.append(FormField("First Name", "firstName", RegisterPage.getNext(it), "text", ""))
         formFieldList.append(FormField("Last Name", "lastName", RegisterPage.getNext(it), "text", ""))
@@ -115,19 +116,24 @@ class RegisterPage(webapp.RequestHandler):
                 member.studentNo = int(studentNo)
 
             member.Create()
-            self.redirect("/registerDone?key=" + str(member.key()))
+            self.redirect("/register/done?key=" + str(member.key()))
 
 class DonePage(webapp.RequestHandler):
     def get(self):
         key_name = self.request.get("key")
 
-        key = db.Key(key_name)
-        member = db.get(key)
+        try:
+            key = db.Key(key_name)
+            member = db.get(key)
+        except:
+            # redirect to error page
+            logging.warn('Error retreiving member with key %s' % key_name)
+            print 'error'
 
         msgBody =   member.firstName + ', \n\n' \
                     'Welcome to the UBC Badminton Club! ' \
                     'In order to verify your email, please click the following link: ' \
-                    + self.request.host_url  + '/activation/' + member.emailHash 
+                    + member.getActivateUrl(self)
 
         email = SendMail(users.get_current_user().email(),
                          member.email, 
@@ -143,8 +149,14 @@ class DonePage(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'templates', 'done.html')
         self.response.out.write(template.render(path, template_values)) 
 
+class ActivationPage(webapp.RequestHandler):
+    def get(self):
+        hash = self.request.get("verify")
+        Member.verifyEmail(hash)
+
 application = webapp.WSGIApplication(   [('/register', RegisterPage),
-                                         ('/registerDone', DonePage)],
+                                         ('/register/done', DonePage),
+                                         ('/register/activate', ActivationPage)],
                                         debug=True)
 
 def main():
