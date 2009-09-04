@@ -30,6 +30,8 @@ class Member(db.Model):
     def verifyEmail(hash):
         query = Member.gql("WHERE emailHash= :hash", hash=hash)
 
+        return False
+
     @staticmethod
     def nextAvailableMemberNo():
         memberList = Member.all()
