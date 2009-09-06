@@ -125,29 +125,36 @@ class DonePage(webapp.RequestHandler):
         try:
             key = db.Key(key_name)
             member = db.get(key)
-        except:
-            # redirect to error page
-            logging.warn('Error retreiving member with key %s' % key_name)
-            print 'error'
 
-        msgBody =   member.firstName + ', \n\n' \
-                    'Welcome to the UBC Badminton Club! ' \
-                    'In order to verify your email, please click the following link: ' \
-                    + member.getActivateUrl(self)
+            msgBody =   member.firstName + ', \n\n' \
+                        'Welcome to the UBC Badminton Club! ' \
+                        'In order to verify your email, please click the following link: ' \
+                        + member.getActivateUrl(self)
 
-        email = SendMail(users.get_current_user().email(),
-                         member.email, 
-                         'Registration',
-                         msgBody)
-        email.send()
+            email = SendMail(users.get_current_user().email(),
+                            member.email, 
+                            'Registration',
+                            msgBody)
+            email.send()
  
-        template_values = {
-            'member': member,
-            'backUrl': '/register'
-        }
+            template_values = {
+                'member': member,
+                'backUrl': '/register'
+            }
        
-        path = os.path.join(os.path.dirname(__file__), 'templates', 'done.html')
-        self.response.out.write(template.render(path, template_values)) 
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'done.html')
+            self.response.out.write(template.render(path, template_values)) 
+
+        except:
+            logging.warn('Error retreiving member with key %s' % key_name)
+
+            template_values = {
+                'content' : "404 - unable to retrive member with that particular key id",
+                'ContactEmail' : 'ubc.badm@gmail.com'
+            }
+
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
+            self.response.out.write(template.render(path, template_values))
 
 class ActivationPage(webapp.RequestHandler):
     def get(self):
