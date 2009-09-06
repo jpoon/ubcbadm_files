@@ -29,8 +29,13 @@ class Member(db.Model):
     @staticmethod
     def verifyEmail(hash):
         query = Member.gql("WHERE emailHash= :hash", hash=hash)
-
-        return False
+        if query.count() == 1:
+            member = query.get()
+            member.emailVerified = True
+            return member
+        else:
+            logging.info('Unable to verify hash %s' % hash)
+            return None
 
     @staticmethod
     def nextAvailableMemberNo():

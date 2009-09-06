@@ -152,7 +152,24 @@ class DonePage(webapp.RequestHandler):
 class ActivationPage(webapp.RequestHandler):
     def get(self):
         hash = self.request.get("verify")
-        Member.verifyEmail(hash)
+
+        member = Member.verifyEmail(hash)
+
+        if member != None:
+            pageContent =  member.firstName + ', <br/><br/>' \
+                           'Thank you for verifying your email address. ' \
+                           'Be sure to check your inbox frequently for UBC Badminton Club news!'
+        else:
+            pageContent =  'Uh oh! Spagetti-O! <br/>' \
+                           'We are not able to verify this email address. Contact us for further support.'
+
+        template_values = {
+            'content': pageContent,
+            'ContactEmail': 'ubc.badm@gmail.com'
+        }
+
+        path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
+        self.response.out.write(template.render(path, template_values))
 
 application = webapp.WSGIApplication(   [('/register', RegisterPage),
                                          ('/register/done', DonePage),
