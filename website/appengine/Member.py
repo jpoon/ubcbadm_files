@@ -39,9 +39,19 @@ class Member(db.Model):
             return None
 
     @staticmethod
-    def nextAvailableMemberNo():
+    def getMemberList(sortMethod):
         memberList = Member.all()
-        memberList.order('memberNo')
+
+        try:
+            memberList.order(sortMethod)
+        except:
+            memberList.order('memberNo')
+
+        return memberList
+
+    @staticmethod
+    def nextAvailableMemberNo():
+        memberList = Member.getMemberList('memberNo')
     
         prevMemberNo = 0
         for member in memberList:
