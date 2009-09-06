@@ -32,6 +32,7 @@ class Member(db.Model):
         if query.count() == 1:
             member = query.get()
             member.emailVerified = True
+            member.put()
             return member
         else:
             logging.info('Unable to verify hash %s' % hash)
