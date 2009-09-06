@@ -24,6 +24,34 @@ table {
     border:1px solid #000000;
 }
 
+#wideContainer {
+    margin:0px auto;
+    padding:15px;
+    width:900px;
+    overflow:hidden;
+    background-color:#FFFFFF;
+    border:1px solid #000000;
+}
+
+#memberList {
+    font-size:13px;
+}
+
+    #memberList th {
+        background-color:#c7c7c7;
+        border:1px solid #000000;
+        padding:4px;
+    }
+
+    #memberList td {
+        border-bottom:1px solid #000000;
+        padding:4px;
+    }
+
+    #memberList a {
+        color:#000000;
+    }
+
 #footer {
     font-size:11px;
     text-align:right;

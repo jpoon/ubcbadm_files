@@ -21,3 +21,7 @@ handlers:
   login: admin
   secure: always
 
+- url: /admin.*
+  script: admin.py
+  login: admin
+  secure: always
