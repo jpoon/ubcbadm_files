@@ -19,14 +19,29 @@ class AllMembersPage(webapp.RequestHandler):
         self.response.out.write(template.render(path, template_values))
 
 class MemberEditPage(webapp.RequestHandler):
+    def getInput(self, formId):
+        return cgi.escape(self.request.get(formId))
+
     def get(self):
         emailHash = self.request.get("id")
 
         template_values = {
+            'id': emailHash,
             'member': Member.getMember(emailHash)
         }
         path = os.path.join(os.path.dirname(__file__), 'templates', 'memberEdit.html')
         self.response.out.write(template.render(path, template_values))
+
+    def post(self):
+        emailHash = self.request.get("id")
+        member = Member.getMember(emailHash)
+
+        firstName = self.getInput('firstName')
+        lastName = self.getInput('lastName')
+        email = self.getInput('email')
+
+        if member.firstName != firstName:
+
 
 
 application = webapp.WSGIApplication(   [('/admin/memberList', AllMembersPage),

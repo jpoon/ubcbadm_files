@@ -10,17 +10,21 @@
 <div id="container">
     <form   id="memberEdit"
             name="memberEdit"
-            action="/admin/memberEdit"
+            action="/admin/memberEdit?id={{ id }}"
             method="post"
             onSubmit="return validateForm(this.id);">
         <table id="memberEditForm">
             <tr>
                 <td>First Name</td>
-                <td><input value="{{ member.firstName }}" /></td>
+                <td><input name="firstName" value="{{ member.firstName }}" /></td>
             </tr>
             <tr>
                 <td>Last Name</td>
-                <td><input value="{{ member.lastName }}" /></td>
+                <td><input name="lastName" value="{{ member.lastName }}" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input name="email" value="{{ member.email }}" /></td>
             </tr>
         </table>
 
