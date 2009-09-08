@@ -18,7 +18,19 @@ class AllMembersPage(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'templates', 'memberList.html')
         self.response.out.write(template.render(path, template_values))
 
-application = webapp.WSGIApplication(   [('/admin/memberList', AllMembersPage)],
+class MemberEditPage(webapp.RequestHandler):
+    def get(self):
+        emailHash = self.request.get("id")
+
+        template_values = {
+            'member': Member.getMember(emailHash)
+        }
+        path = os.path.join(os.path.dirname(__file__), 'templates', 'memberEdit.html')
+        self.response.out.write(template.render(path, template_values))
+
+
+application = webapp.WSGIApplication(   [('/admin/memberList', AllMembersPage),
+                                         ('/admin/memberEdit', MemberEditPage)],
                                         debug=True)
 
 def main():

@@ -43,14 +43,19 @@ table {
         padding:4px;
     }
 
+        #memberList th > a {
+            color:#000000;
+        }
+
     #memberList td {
         border-bottom:1px solid #000000;
         padding:4px;
     }
 
-    #memberList a {
-        color:#000000;
-    }
+        #memberList td > a {
+            color: red;
+            font-weight:bold;
+        }
 
 #footer {
     font-size:11px;
@@ -82,6 +87,18 @@ table {
     }
 
     #registerForm td {
+        padding:5px;
+    }
+
+#memberEditForm {
+    width:100%;
+}
+
+    #memberEditForm tr {
+        height:30px;
+    }
+
+    #memberEditForm td {
         padding:5px;
     }
 

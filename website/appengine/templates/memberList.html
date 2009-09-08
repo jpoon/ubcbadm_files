@@ -6,7 +6,7 @@
     <script type="text/javascript" src="/scripts/formUI.js"></script>
     <script type="text/javascript" src="/scripts/formValidation.js"></script>
 </head>
-<body onload="formOnLoad();">
+<body> 
 <div id="wideContainer">
     <table id="memberList">
         <tr>
@@ -21,7 +21,7 @@
         </tr>
         {% for member in memberList %}
         <tr>
-            <td>{{ member.memberNo }}</td>
+            <td><a href="/admin/memberEdit?id={{ member.emailHash }}">{{ member.memberNo }}</a></td>
             <td>{{ member.firstName }}</td>
             <td>{{ member.lastName }}</td>
             <td>{{ member.ubcAffliation }}</td>

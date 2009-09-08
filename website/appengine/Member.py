@@ -39,6 +39,14 @@ class Member(db.Model):
             return None
 
     @staticmethod
+    def getMember(emailHash):
+        query = Member.gql("WHERE emailHash = :hash", hash=emailHash)
+        if query.count() == 1:
+            return query.get()
+        else:
+            return None
+
+    @staticmethod
     def getMemberList(sortMethod):
         memberList = Member.all()
 
