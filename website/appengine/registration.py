@@ -143,7 +143,7 @@ class DonePage(webapp.RequestHandler):
                 'backUrl': '/register'
             }
        
-            path = os.path.join(os.path.dirname(__file__), 'templates', 'regsterDone.html')
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'registerDone.html')
             self.response.out.write(template.render(path, template_values)) 
 
         except:
