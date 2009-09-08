@@ -7,9 +7,11 @@
 <body>
 <div id="container">
 
-    <p>{{ member.firstName }} (aka. Member No: <b>{{ member.memberNo }}</b>),</p>
+    <p>{{ member.firstName }}</p>
     <p>Congratulations and thank you for becoming a member of the UBC Badminton Club!
        We're looking forward to seeing you at the next gym night!</p>
+    <p>Gym nights will commence next week where Tuesday will be for <b>new</b> members only.
+       Subsequent gym nights will be open for all members</p>
     <p>Your first badminton news email has just been sent to <i>{{ member.email }}</i>.</p>
     <div id="footer">
         <a href="{{ backUrl }}">Back</a>

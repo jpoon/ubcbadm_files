@@ -64,7 +64,7 @@ class RegisterPage(webapp.RequestHandler):
 
     def get(self):
         template_values = self.getFormTemplate('', '')
-        path = os.path.join(os.path.dirname(__file__), 'templates', 'form.html')
+        path = os.path.join(os.path.dirname(__file__), 'templates', 'registerForm.html')
         self.response.out.write(template.render(path, template_values))
 
     def post(self):
@@ -98,8 +98,9 @@ class RegisterPage(webapp.RequestHandler):
         if Member.isValidStudentNo(studentNo) is False:
             message.append("Student Number already registered")
             error = True
-
+        
         if error is True:
+            # re-post page with previously inputted information
             template_values = self.getFormTemplate(formData, message)
             path = os.path.join(os.path.dirname(__file__), 'templates', 'form.html')
             self.response.out.write(template.render(path, template_values))
@@ -142,7 +143,7 @@ class DonePage(webapp.RequestHandler):
                 'backUrl': '/register'
             }
        
-            path = os.path.join(os.path.dirname(__file__), 'templates', 'done.html')
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'regsterDone.html')
             self.response.out.write(template.render(path, template_values)) 
 
         except:
@@ -150,7 +151,6 @@ class DonePage(webapp.RequestHandler):
 
             template_values = {
                 'content' : "404 - unable to retrive member with that particular key id",
-                'ContactEmail' : 'ubc.badm@gmail.com'
             }
 
             path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
@@ -172,7 +172,6 @@ class ActivationPage(webapp.RequestHandler):
 
         template_values = {
             'content': pageContent,
-            'ContactEmail': 'ubc.badm@gmail.com'
         }
 
         path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
