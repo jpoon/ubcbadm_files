@@ -10,6 +10,7 @@ class Member(db.Model):
     studentNo = db.IntegerProperty()
     phoneNumber = db.PhoneNumberProperty(required=True)
     email = db.EmailProperty(required=True)
+    memberType = db.StringProperty(required=True, choices=set(["New", "Returning"]))
     level = db.StringProperty(required=True, choices=set(["Beginner", "Intermediate I", "Intermediate II", "Advanced"]))
     memberNo = db.IntegerProperty(required=True)
     emailHash = db.StringProperty()

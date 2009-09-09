@@ -45,6 +45,10 @@ class RegisterPage(webapp.RequestHandler):
         skillLevels.append("Intermediate II")
         skillLevels.append("Advanced")
 
+        memberTypes = []
+        memberTypes.append("New")
+        memberTypes.append("Returning")
+
         # building form
         formFieldList = []
         formFieldList.append(FormField("First Name", "firstName", RegisterPage.getNext(it), "text", ""))
@@ -53,6 +57,7 @@ class RegisterPage(webapp.RequestHandler):
         formFieldList.append(FormField("Student No", "studentNo", RegisterPage.getNext(it), "text", ""))
         formFieldList.append(FormField("Phone Number", "phoneNumber", RegisterPage.getNext(it), "text", ""))
         formFieldList.append(FormField("Email", "email", RegisterPage.getNext(it), "text", ""))
+        formFieldList.append(FormField("Member Type", "memberType", RegisterPage.getNext(it), "radio", memberTypes))
         formFieldList.append(FormField("Skill Level", "level", RegisterPage.getNext(it), "radio", skillLevels)) 
         
         template_values = {
@@ -74,6 +79,7 @@ class RegisterPage(webapp.RequestHandler):
         studentNo = self.getInput('studentNo')
         phoneNumber = db.PhoneNumber(self.getInput('phoneNumber'))
         email = db.Email(self.getInput('email'))
+        memberType = self.getInput('memberType')
         level = self.getInput('level')
 
         # must be appended in same order as form
@@ -84,6 +90,7 @@ class RegisterPage(webapp.RequestHandler):
         formData.append(studentNo)
         formData.append(phoneNumber)
         formData.append(email)
+        formData.append(memberType)
         formData.append(level)
 
         error = False       
@@ -110,6 +117,7 @@ class RegisterPage(webapp.RequestHandler):
                             ubcAffliation = ubcAffliation,
                             phoneNumber = phoneNumber,
                             email = email,
+                            memberType = memberType,
                             level = level,
                             memberNo = Member.nextAvailableMemberNo())
 
