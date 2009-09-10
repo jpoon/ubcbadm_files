@@ -24,6 +24,10 @@ require_once ('include/html_head.php');
 		    located next to Thunderbird Arenas at <a target="_blank" 
 			href="http://www.maps.ubc.ca/PROD/index_detail.php?show=y,y,y,y,y,y&bldg2Search=n&locat1=430&locat2=">6108
     		Thunderbird Boulevard</a>.</p>
+
+            <b>We are still in the process of establishing the gym hours with Osbourne Gym. Please bear with us. The gym hours should be finalized before Club Days.</b>
+
+            <!--
 	    	<table border="1" cellpadding="5px">
 		   	<tr>
 				<td rowspan="2" valign="top" width="50px">Term 1</td>
@@ -44,6 +48,7 @@ require_once ('include/html_head.php');
 				<td>7:00 - 11:00 PM</td>
 			</tr>
 		    </table>
+            --!>
 
             <h1>Event Calendar</h1>
             <iframe src="//www.google.com/calendar/embed?showTitle=0&amp;height=450&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ra82akobth6fn1qg7pbgnlj5vg%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=America%2FVancouver" style=" border-width:0 " width="755" height="450" frameborder="0" scrolling="no"></iframe>

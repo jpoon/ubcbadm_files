@@ -31,11 +31,9 @@ require_once ('include/html_head.php');
     	    </div>
 
             <div id="rightcontent">
-	        	<h2>Summer Break</h2>
-                <span class="date">May 2, 2009</span>
-                School's out! Thanks for a wonderful badminton-filled year. Be sure to drop by our
-                sign-up booth during Club Days in September 2009! In the meantime, you can drop-in 
-                at the SRC to meet your badminton needs.
+	        	<h2>Club Days</h2>
+                <span class="date">Sept. 9, 2009</span>
+                	Welcome back to school! Be sure to drop by our booth during Club Days (Sept. 23-25) to join the badminton club.
             </div>
 
         </div>
