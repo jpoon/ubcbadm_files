@@ -34,6 +34,7 @@ table {
 }
 
 #memberList {
+    width:100%;
     font-size:13px;
 }
 
@@ -66,6 +67,13 @@ table {
     #footer a {
         text-decoration:none;
     }
+
+#msg {
+    background-color:#66FF33;
+    border:1px solid black;
+    padding:5px 15px 5px 15px;
+    margin-bottom:10px;
+}
 
 #errorMsg {
     background-color:#f578a1;
@@ -100,6 +108,20 @@ table {
 
     #memberEditForm td {
         padding:5px;
+    }
+
+#memberEditConfirmForm {
+    width:100%;
+}
+
+    #memberEditConfirmForm th {
+        border:1px solid #000000;
+        background-color:#c7c7c7;
+    }
+
+    #memberEditConfirmForm td {
+        padding:2px;
+        border-bottom:1px solid #000000;
     }
 
 .formLabel {

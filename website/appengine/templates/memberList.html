@@ -8,6 +8,11 @@
 </head>
 <body> 
 <div id="wideContainer">
+    {% if message %}
+    <div id="msg">
+        {{ message }}
+    </div>
+    {% endif %}
     <table id="memberList">
         <tr>
             <th><a href="/admin/memberList?sort=memberNo">No.</a></th>

@@ -1,17 +1,26 @@
 import os
 import cgi
 import logging
+import urllib
 from Member import *
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
 from google.appengine.api import users
 
-class AllMembersPage(webapp.RequestHandler):
+class MemberEdit(object):
+    def __init__(self, attributeName, prevValue, newValue):
+        self.name = attributeName
+        self.prev = prevValue
+        self.new = newValue
+
+class MemberListPage(webapp.RequestHandler):
     def get(self):
+        msg = self.request.get("msg")
         sortMethod = self.request.get("sort")
 
         template_values = {
+            'message': msg,
             'memberList': Member.getMemberList(sortMethod),
             'logoutUrl': users.create_logout_url(self.request.uri)
         }
@@ -36,15 +45,61 @@ class MemberEditPage(webapp.RequestHandler):
         emailHash = self.request.get("id")
         member = Member.getMember(emailHash)
 
-        firstName = self.getInput('firstName')
-        lastName = self.getInput('lastName')
-        email = self.getInput('email')
+        confirmEdit = self.request.get("confirm")
 
-        if member.firstName != firstName:
+        if not confirmEdit:
+            firstName = self.getInput('firstName')
+            lastName = self.getInput('lastName')
+            email = self.getInput('email')
 
+            memberEditList = []
 
+            if member.firstName != firstName:
+                memberEditList.append(MemberEdit("first name", member.firstName, firstName))            
 
-application = webapp.WSGIApplication(   [('/admin/memberList', AllMembersPage),
+            if member.lastName != lastName:
+                memberEditList.append(MemberEdit("last name", member.lastName, lastName))            
+
+            if member.email != email:
+                memberEditList.append(MemberEdit("email", member.email, email))            
+
+            if memberEditList:
+                template_values = {
+                    'emailHash': emailHash,
+                    'memberEditList': memberEditList,
+                    'cancelUrl': self.request.host_url + '/admin/memberList'
+                }
+
+                path = os.path.join(os.path.dirname(__file__), 'templates', 'memberEditConfirm.html')
+                self.response.out.write(template.render(path, template_values))
+            else:
+                message = "No modifications made"
+                urllib.quote(message)
+
+                self.redirect("/admin/memberList?msg="+message)
+
+        else:
+            firstName = self.getInput('first name')
+            lastName = self.getInput('last name')
+            email = self.getInput('email')
+
+            if firstName:
+                member.firstName = firstName
+
+            if lastName:
+                member.lastName = lastName
+
+            if email:
+                member.email = email
+
+            member.put()
+
+            message = "Saved member information"
+            urllib.quote(message)
+
+            self.redirect("/admin/memberList?msg="+message)
+
+application = webapp.WSGIApplication(   [('/admin/memberList', MemberListPage),
                                          ('/admin/memberEdit', MemberEditPage)],
                                         debug=True)
 
