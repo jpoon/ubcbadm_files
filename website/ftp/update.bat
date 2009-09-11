@@ -6,8 +6,10 @@ echo     -----------------------------------------------------------------
 echo     +                                                               +
 echo     +    UBC Badminton Club                                         +
 echo     +                                                               +
-echo     +                Website:   www.ams.ubc.ca/badminton            +
-echo     +                Email:     ubc.badm@gmail.com                  +
+echo     +              Website:    www.ams.ubc.ca/badminton             +
+echo     +              Email:      ubc.badm@gmail.com                   +
+echo     +                                                               +
+echo     +              Created by: Jason Poon (mr.j.poon@gmail.com)     +
 echo     +                                                               +
 echo     -----------------------------------------------------------------
 echo.
@@ -27,8 +29,10 @@ echo     -----------------------------------------------------------------
 echo     +                                                               +
 echo     +    UBC Badminton Club                                         +
 echo     +                                                               +
-echo     +                Website:   www.ams.ubc.ca/badminton            +
-echo     +                Email:     ubc.badm@gmail.com                  +
+echo     +              Website:    www.ams.ubc.ca/badminton             +
+echo     +              Email:      ubc.badm@gmail.com                   +
+echo     +                                                               +
+echo     +              Created by: Jason Poon (mr.j.poon@gmail.com)     +
 echo     +                                                               +
 echo     -----------------------------------------------------------------
 echo.
