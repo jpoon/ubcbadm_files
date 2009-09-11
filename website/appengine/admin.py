@@ -14,6 +14,19 @@ class MemberEdit(object):
         self.prev = prevValue
         self.new = newValue
 
+class AdminPage(webapp.RequestHandler):
+    def get(self):
+        content = """<a href="/admin/memberList">Member List</a>"""
+
+        template_values = {
+            'content' : content,
+            'homeUrl' : "/admin",
+            'logoutUrl': users.create_logout_url(self.request.uri)
+        }
+
+        path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
+        self.response.out.write(template.render(path, template_values))
+
 class MemberListPage(webapp.RequestHandler):
     def get(self):
         msg = self.request.get("msg")
@@ -22,6 +35,7 @@ class MemberListPage(webapp.RequestHandler):
         template_values = {
             'message': msg,
             'memberList': Member.getMemberList(sortMethod),
+            'homeUrl': "/admin",
             'logoutUrl': users.create_logout_url(self.request.uri)
         }
         path = os.path.join(os.path.dirname(__file__), 'templates', 'memberList.html')
@@ -33,10 +47,15 @@ class MemberEditPage(webapp.RequestHandler):
 
     def get(self):
         emailHash = self.request.get("id")
+    
+        message = "Action Canceled"
+        urllib.quote(message)
 
         template_values = {
             'id': emailHash,
-            'member': Member.getMember(emailHash)
+            'member': Member.getMember(emailHash),
+            'cancelUrl': "/admin/memberList?msg="+message,
+            'logoutUrl': users.create_logout_url(self.request.uri)
         }
         path = os.path.join(os.path.dirname(__file__), 'templates', 'memberEdit.html')
         self.response.out.write(template.render(path, template_values))
@@ -64,10 +83,14 @@ class MemberEditPage(webapp.RequestHandler):
                 memberEditList.append(MemberEdit("email", member.email, email))            
 
             if memberEditList:
+                message = "Action Canceled"
+                urllib.quote(message)
+
                 template_values = {
                     'emailHash': emailHash,
                     'memberEditList': memberEditList,
-                    'cancelUrl': self.request.host_url + '/admin/memberList'
+                    'cancelUrl': '/admin/memberList?msg='+message,
+                    'logoutUrl': users.create_logout_url(self.request.uri)
                 }
 
                 path = os.path.join(os.path.dirname(__file__), 'templates', 'memberEditConfirm.html')
@@ -99,7 +122,8 @@ class MemberEditPage(webapp.RequestHandler):
 
             self.redirect("/admin/memberList?msg="+message)
 
-application = webapp.WSGIApplication(   [('/admin/memberList', MemberListPage),
+application = webapp.WSGIApplication(   [('/admin', AdminPage),
+                                         ('/admin/memberList', MemberListPage),
                                          ('/admin/memberEdit', MemberEditPage)],
                                         debug=True)
 

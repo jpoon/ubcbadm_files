@@ -61,7 +61,8 @@ table {
 #footer {
     font-size:11px;
     text-align:right;
-    padding:4px 10px 6px 0px;
+    margin-top:10px;
+    padding:2px 10px 6px 0px;
 }
 
     #footer a {

@@ -8,7 +8,21 @@
 <div id="container">
     <p>{{ content }}</p>
     <div id="footer">
+        {% if homeUrl %}
+        <a href="{{ homeUrl }}">Home</a>
+        {% endif %}
+
+        {% if homeUrl or logoutUrl %}
+        |
+        {% endif %}
+
+        {% if logoutUrl %}
+        <a href="{{ logoutUrl }}">Logout</a>
+        {% endif %}
+
+        {% if not homeUrl or not logoutUrl %}
         <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
     </div>
 </div>
 </body>
