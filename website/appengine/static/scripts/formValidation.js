@@ -1,5 +1,6 @@
 var fieldErrorColor = '#f578a1';
 var fieldNormalColor = '#ffffff';
+var confirmationPassword = "paid"
 
 function validateForm(formId) {
 	var msg = "";
@@ -136,7 +137,7 @@ function validateExecConfirmation(fld) {
     var error = "";
     var stripped = trim(fld.value);
 
-    if (fld.value == "") {
+    if (fld.value != confirmationPassword) {
         fldBackground(fld, fieldErrorColor);
         error = "Executive signature required"
     } else {
