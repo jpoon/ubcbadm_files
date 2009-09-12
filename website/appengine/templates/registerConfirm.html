@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>UBC Badminton Club</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <script type="text/javascript" src="/scripts/formUI.js"></script>
+    <script type="text/javascript" src="/scripts/formValidation.js"></script>
+</head>
+<body onload="formConfirmOnLoad();"> 
+<div id="container">
+    <div id="title">
+        UBC Badminton Club - Membership Registration
+    </div>
+    
+    <form   id="memberRegistrationConfirm"
+            name="memberRegistrationConfirm"
+            action="/register/confirm?id={{ key }}" 
+            method="post" 
+            onSubmit="return validateForm(this.id);">
+        <p> In order to proceed with registration, we require registration dues to be paid up-front and in full.
+            Being a {{ memberType }} member, the membership cost is 
+            <b>
+            {% ifequal memberType "New" %}
+                $50
+            {% else %}
+                $40
+            {% endifequal %} 
+            </b>.</p>
+
+        <table id="registerForm">
+            <tr>
+                <td>Executive Confirmation:</td>
+                <td>
+                    <input  id="execConfirm" 
+                        type="text"
+                        size="28" 
+                        name="execConfirm" />
+                </td>
+                <td class="formError">
+                    <i>
+                    <label id="execConfirm_lbl" class="formError"></label>
+                    </i>
+        </table>
+
+        <input class="button" type="submit" value="Register" />
+        <input class="button" type="reset" value="Clear" />
+    </form>
+
+    <div id="footer">
+        <a href="{{ backUrl }}">Back</a>
+    </div>
+
+</div>
+</body>
+</html>
+

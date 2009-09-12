@@ -5,6 +5,11 @@ function formOnLoad() {
     setInterval( function() { validateForm('memberRegistration') }, 800);
 }
 
+function formConfirmOnLoad() {
+    validateForm('memberRegistrationConfirm')
+    setInterval( function() { validateForm('memberRegistrationConfirm') }, 800);
+}
+
 function formRowHighlight(inputId) {
     obj = document.getElementById(inputId + "_tr");
     obj.bgColor = '#E0E0E0';

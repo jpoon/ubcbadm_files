@@ -18,7 +18,11 @@ function validateForm(formId) {
         msg += print(studentNo.id, validateStudentNo(studentNo));
         msg += print(phoneNumber.id, validatePhone(phoneNumber));
         msg += print(email.id, validateEmail(email));
-	}
+	} else if (formId == "memberRegistrationConfirm" ) {
+        var confirmation = formObj.execConfirm;
+       
+        msg += print(confirmation.id, validateExecConfirmation(confirmation)); 
+    }
 	
 	if (msg != "") {
 		return false;
@@ -122,6 +126,19 @@ function validateStudentNo(fld) {
     } else if (stripped.length != 8) {
         error = fld.id + " should contain 8 numerals"; 
         fldBackground(fld, fieldErrorColor);
+    } else {
+        fldBackground(fld, fieldNormalColor);
+    }
+    return error;
+}
+
+function validateExecConfirmation(fld) {
+    var error = "";
+    var stripped = trim(fld.value);
+
+    if (fld.value == "") {
+        fldBackground(fld, fieldErrorColor);
+        error = "Executive signature required"
     } else {
         fldBackground(fld, fieldNormalColor);
     }

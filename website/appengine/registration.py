@@ -2,12 +2,15 @@ import os
 import cgi
 import logging
 import itertools 
+import hashlib
 from SendMail import *
 from Member import *
+from datetime import datetime
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
 from google.appengine.api import users
+from google.appengine.api import memcache
 
 class FormField(object):
     def __init__(self, label, inputName, value, formType, formOptions):
@@ -109,7 +112,7 @@ class RegisterPage(webapp.RequestHandler):
         if error is True:
             # re-post page with previously inputted information
             template_values = self.getFormTemplate(formData, message)
-            path = os.path.join(os.path.dirname(__file__), 'templates', 'form.html')
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'registerForm.html')
             self.response.out.write(template.render(path, template_values))
         else:
             member = Member(firstName = firstName,
@@ -124,9 +127,43 @@ class RegisterPage(webapp.RequestHandler):
             if ubcAffliation == 'Student':
                 member.studentNo = int(studentNo)
 
-            member.Create()
-            self.redirect("/register/done?key=" + str(member.key()))
+            key = str(datetime.now())
+            hash = hashlib.md5()
+            hash.update(key)
+            hex = hash.hexdigest()
+            
+            memcache.add(hex, member, 300)
+            self.redirect("/register/confirm?id="+hex)
 
+class ConfirmPage(webapp.RequestHandler):
+    def get(self):
+        key = self.request.get("id")        
+        member = memcache.get(key)
+
+        if member is None:
+            logger.warn("Memcache Miss")
+            self.redirect("/register")
+        else:
+            template_values = {
+                'key': key,
+                'memberType': member.memberType,
+                'backUrl': '/register'
+            }
+       
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'registerConfirm.html')
+            self.response.out.write(template.render(path, template_values)) 
+
+    def post(self):
+        key = self.request.get("id")
+        member = memcache.get(key)
+        if member is None:
+            logging.warn("Memcache Miss")
+            self.redirect("/register")
+        else:
+            member.Create()
+            memcache.delete(key)
+            self.redirect("/register/done?key=" + str(member.key()))
+        
 class DonePage(webapp.RequestHandler):
     def get(self):
         key_name = self.request.get("key")
@@ -186,6 +223,7 @@ class ActivationPage(webapp.RequestHandler):
         self.response.out.write(template.render(path, template_values))
 
 application = webapp.WSGIApplication(   [('/register', RegisterPage),
+                                         ('/register/confirm', ConfirmPage),
                                          ('/register/done', DonePage),
                                          ('/register/activate', ActivationPage)],
                                         debug=True)
