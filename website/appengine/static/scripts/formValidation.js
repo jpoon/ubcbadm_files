@@ -139,7 +139,7 @@ function validateExecConfirmation(fld) {
 
     if (fld.value == "") {
         fldBackground(fld, fieldErrorColor)
-        error = "Refer to club executives to obtain confirmation"
+        error = "Refer to club executives to obtain confirmation code"
     } else if (fld.value != confirmationPassword) {
         fldBackground(fld, fieldErrorColor);
         error = "Incorrect password"
