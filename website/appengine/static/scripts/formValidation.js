@@ -137,9 +137,12 @@ function validateExecConfirmation(fld) {
     var error = "";
     var stripped = trim(fld.value);
 
-    if (fld.value != confirmationPassword) {
+    if (fld.value == "") {
+        fldBackground(fld, fieldErrorColor)
+        error = "Refer to club executives to obtain confirmation"
+    } else if (fld.value != confirmationPassword) {
         fldBackground(fld, fieldErrorColor);
-        error = "Executive signature required"
+        error = "Incorrect password"
     } else {
         fldBackground(fld, fieldNormalColor);
     }
