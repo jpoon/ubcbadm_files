@@ -8,6 +8,18 @@
 </head>
 <body onload="formOnLoad();">
 <div id="container">
+    <div id="title">
+        UBC Badminton Club - Membership Registration
+    </div>
+    
+    <table id="memberInfo">
+        <tr><td><b>Membership Duration</b></td>
+            <td>8 months (Sept. - April)</td></tr>
+        <tr><td rowspan="2"><b>Membership Fees</b></td>
+            <td>New Member:</td><td>$50</td></tr>
+        <tr><td>Returning Member:</td><td>$40</td></tr>
+        <tr><td><b>Refund Policy:</b></td><td colspan="2">During club days, partial refund will be given (50% of paid dues)</td></tr>
+    </table>
     {% if messageList %}
     <div id="errorMsg">
         {% for msg in messageList %}
@@ -57,7 +69,6 @@
         </tr>
         {% endfor %}
         </table>
-
 
         <input class="button" type="submit" value="Register" />
         <input class="button" type="reset" value="Clear" />

@@ -33,6 +33,24 @@ table {
     border:1px solid #000000;
 }
 
+#title {
+    padding:5px;
+    background-color:#c7c7c7;
+    border:1px solid black;
+    font-size:15px;
+    font-weight:bold;
+}
+
+#memberInfo {
+    margin:8px 0px 8px 0px;
+    font-size:12px;
+}
+
+#memberInfo td {
+    padding:3px 6px 3px 6px;
+    border:1px solid #c7c7c7;
+}
+
 #memberList {
     width:100%;
     font-size:13px;
