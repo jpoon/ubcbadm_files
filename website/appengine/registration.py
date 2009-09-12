@@ -79,7 +79,7 @@ class RegisterPage(webapp.RequestHandler):
         firstName = self.getInput('firstName')
         lastName = self.getInput('lastName')
         ubcAffliation = self.getInput('ubcAffliation')
-        studentNo = self.getInput('studentNo')
+        studentNo = int(self.getInput('studentNo'))
         phoneNumber = db.PhoneNumber(self.getInput('phoneNumber'))
         email = db.Email(self.getInput('email'))
         memberType = self.getInput('memberType')
@@ -103,7 +103,7 @@ class RegisterPage(webapp.RequestHandler):
         if Member.isValidEmail(email) is False:
             message.append("Email is already in use by another member")
             error = True
-
+        
         # Check for duplicate student number
         if Member.isValidStudentNo(studentNo) is False:
             message.append("Student Number already registered")
