@@ -16,7 +16,21 @@ class MemberEdit(object):
 
 class AdminPage(webapp.RequestHandler):
     def get(self):
-        content = """<a href="/admin/memberList">Member List</a>"""
+        content = """<p><a href="/admin/memberList">Member List</a></p>
+                     <p><a href="/admin/mailingList">Member Emails</a></p>"""
+
+        template_values = {
+            'content' : content,
+            'homeUrl' : "/admin",
+            'logoutUrl': users.create_logout_url(self.request.uri)
+        }
+
+        path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
+        self.response.out.write(template.render(path, template_values))
+
+class MemberMailingListPage(webapp.RequestHandler):
+    def get(self):
+        content = """<span id="emails">""" + Member.getAllEmails() + """</span>"""
 
         template_values = {
             'content' : content,
@@ -123,6 +137,7 @@ class MemberEditPage(webapp.RequestHandler):
             self.redirect("/admin/memberList?msg="+message)
 
 application = webapp.WSGIApplication(   [('/admin', AdminPage),
+                                         ('/admin/mailingList', MemberMailingListPage),
                                          ('/admin/memberList', MemberListPage),
                                          ('/admin/memberEdit', MemberEditPage)],
                                         debug=True)

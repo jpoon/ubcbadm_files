@@ -28,6 +28,19 @@ class Member(db.Model):
         return handler.request.host_url + '/register/activate?verify=' + self.emailHash
 
     @staticmethod
+    def getAllEmails():
+        memberList = Member.gql("WHERE emailVerified = TRUE")
+
+        separator = ", "
+        emailList = ""
+
+        for member in memberList:
+            emailList += member.email
+            emailList += separator
+        return emailList
+                
+
+    @staticmethod
     def verifyEmail(hash):
         query = Member.gql("WHERE emailHash= :hash", hash=hash)
         if query.count() == 1:
