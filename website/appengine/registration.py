@@ -79,7 +79,7 @@ class RegisterPage(webapp.RequestHandler):
         firstName = self.getInput('firstName')
         lastName = self.getInput('lastName')
         ubcAffliation = self.getInput('ubcAffliation')
-        studentNo = int(self.getInput('studentNo'))
+        studentNo = self.getInput('studentNo')
         phoneNumber = db.PhoneNumber(self.getInput('phoneNumber'))
         email = db.Email(self.getInput('email'))
         memberType = self.getInput('memberType')
