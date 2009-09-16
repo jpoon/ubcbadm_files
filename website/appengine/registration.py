@@ -5,6 +5,7 @@ import itertools
 import hashlib
 from SendMail import *
 from Member import *
+from Template import *
 from datetime import datetime
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
@@ -31,6 +32,7 @@ class RegisterPage(webapp.RequestHandler):
         return value
 
     def getInput(self, formId):
+        # obtains object value from form and escapes it
         return cgi.escape(self.request.get(formId))
     
     def getFormTemplate(self, formData, messageList):
@@ -62,11 +64,14 @@ class RegisterPage(webapp.RequestHandler):
         formFieldList.append(FormField("Email", "email", RegisterPage.getNext(it), "text", ""))
         formFieldList.append(FormField("Member Type", "memberType", RegisterPage.getNext(it), "radio", memberTypes))
         formFieldList.append(FormField("Skill Level", "level", RegisterPage.getNext(it), "radio", skillLevels)) 
+
+        urlList = []
+        urlList.append(Url("Logout", users.create_logout_url(self.request.uri)))
         
         template_values = {
             'messageList': messageList,
             'formFieldList': formFieldList,
-            'logoutUrl': users.create_logout_url(self.request.uri)
+            'urlList': urlList
         }
         return template_values
 
@@ -115,6 +120,7 @@ class RegisterPage(webapp.RequestHandler):
             path = os.path.join(os.path.dirname(__file__), 'templates', 'registerForm.html')
             self.response.out.write(template.render(path, template_values))
         else:
+            # otherwise, memcache Member object
             member = Member(firstName = firstName,
                             lastName = lastName,
                             ubcAffliation = ubcAffliation,
@@ -127,12 +133,13 @@ class RegisterPage(webapp.RequestHandler):
             if ubcAffliation == 'Student':
                 member.studentNo = int(studentNo)
 
-            key = str(datetime.now())
+            key = str(datetime.now()) + str(member.email)
             hash = hashlib.md5()
             hash.update(key)
             hex = hash.hexdigest()
             
             memcache.add(hex, member, 300)
+            logging.info('Memcache - Adding entry with key %s ' % hex)
             self.redirect("/register/confirm?id="+hex)
 
 class ConfirmPage(webapp.RequestHandler):
@@ -141,13 +148,17 @@ class ConfirmPage(webapp.RequestHandler):
         member = memcache.get(key)
 
         if member is None:
-            logger.warn("Memcache Miss")
+            # obtain Member object from memcache, if missing redirect to registration form
+            logging.warn("Memcache - Miss")
             self.redirect("/register")
         else:
+            urlList = []
+            urlList.append(Url('Back', '/register'))
+
             template_values = {
                 'key': key,
                 'memberType': member.memberType,
-                'backUrl': '/register'
+                'urlList': urlList
             }
        
             path = os.path.join(os.path.dirname(__file__), 'templates', 'registerConfirm.html')
@@ -156,12 +167,15 @@ class ConfirmPage(webapp.RequestHandler):
     def post(self):
         key = self.request.get("id")
         member = memcache.get(key)
+
         if member is None:
-            logging.warn("Memcache Miss")
+            logging.warn("Memcache - Miss")
             self.redirect("/register")
         else:
+            # Create the member and delete cached object
             member.Create()
             memcache.delete(key)
+            logging.info('Memcache - Remove item with key %s ' % key)
             self.redirect("/register/done?key=" + str(member.key()))
         
 class DonePage(webapp.RequestHandler):
@@ -174,28 +188,41 @@ class DonePage(webapp.RequestHandler):
 
             msgBody =   member.firstName + ', \n\n' \
                         'Welcome to the UBC Badminton Club! ' \
-                        'In order to verify your email, please click the following link: ' \
-                        + member.getActivateUrl(self)
+                        'For Term 1, gym nights will be Tuesday from 4-6pm and Fridays from 6:30-11pm. ' \
+                        'The first gym night (Tuesday, Sept. 29) will be an orientation to new members and will therefore be open to NEW members only. '\
+                        'For all other members, Friday, Oct. 2, will be the first gym night open to all members (both returning and new). ' \
+                        'Be sure to check us out on our website for further details. \n\n' \
+                        'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
+                        + member.getActivateUrl(self) 
 
             email = SendMail(users.get_current_user().email(),
                             member.email, 
                             'Registration',
                             msgBody)
             email.send()
+
+            pageContent = '<p>' + member.firstName + ',</p>' \
+                          '<p>Congratulations on becoming a member of the UBC Badminton Club!</p>' \
+                          '<p>Tuesday, Sept. 29th will be an orientation for <b>new</b> members. ' \
+                          'Friday, Oct. 2nd will be the first gym night open to all members (new and returning).</p>' \
+                          '<p>Be sure to check your inbox for further UBC Badminton news!</p> ' 
+
+            urlList = []
+            urlList.append(Url('Back', '/register'))
  
             template_values = {
-                'member': member,
-                'backUrl': '/register'
+                'content' : pageContent,
+                'urlList' : urlList
             }
        
-            path = os.path.join(os.path.dirname(__file__), 'templates', 'registerDone.html')
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
             self.response.out.write(template.render(path, template_values)) 
 
         except:
             logging.warn('Error retreiving member with key %s' % key_name)
 
             template_values = {
-                'content' : "404 - unable to retrive member with that particular key id",
+                'content' : "404 - Uh Oh! We weren't able to retreive the member with that particular id. Please talk to your nearest executive for HeLp!" ,
             }
 
             path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
@@ -211,6 +238,8 @@ class ActivationPage(webapp.RequestHandler):
             pageContent =  member.firstName + ', <br/><br/>' \
                            'Thank you for verifying your email address. ' \
                            'Be sure to check your inbox frequently for UBC Badminton Club news!'
+            logging.info('Member - %s verified' % member.email)
+
         else:
             pageContent =  'Uh oh! Spagetti-O! <br/>' \
                            'We are not able to verify this email address. Contact us for further support.'

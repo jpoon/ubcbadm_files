@@ -8,19 +8,14 @@
 <div id="container">
     <p>{{ content }}</p>
     <div id="footer">
-        {% if homeUrl %}
-        <a href="{{ homeUrl }}">Home</a>
-        {% endif %}
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
 
-        {% if homeUrl or logoutUrl %}
-        |
-        {% endif %}
-
-        {% if logoutUrl %}
-        <a href="{{ logoutUrl }}">Logout</a>
-        {% endif %}
-
-        {% if not homeUrl or not logoutUrl %}
+        {% if not urlList %}
         <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
         {% endif %}
     </div>

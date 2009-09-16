@@ -13,7 +13,16 @@
        Friday, Oct. 2 will be the first gym night open to all members</p>
     <p>Please check your inbox to validate your email of <i>{{ member.email }}</i> so that we can keep you informed of badminton news/events.</p>
     <div id="footer">
-        <a href="{{ backUrl }}">Back</a>
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
     </div>
 
 </div>
