@@ -199,19 +199,21 @@ class DonePage(webapp.RequestHandler):
             member = db.get(key)
 
             msgBody =   member.firstName + ', \n\n' \
-                        '<p>Welcome to the world of UBC Badminton! Your confirmation code is <i>' + member.emailHash + '</i>. Here\'s some useful information:</p>' \
+                        '<p>Welcome to the world of UBC Badminton! Your confirmation code is <i>' + member.emailHash + '</i>. ' \
                         'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
-                        + member.getActivateUrl(self) + '</p>' \
+                        + member.getActivateUrl(self) + \
+                        'Here\'s some useful information regarding upcoming events:</p>' \
                         '<p><u>Gym Nights:</u></p>' \
                         '<p>For term 1, gym nights will be Tuesdays from 4-6pm and Fridays from 6:30-11pm. ' \
+                        'The last gym night of Term 1 will be Friday, Dec. 4. '\
                         'Gym nights are held at the Osbourne Center - Gym A (next to Thunderbird Arena).</p>' \
                         '<p><u>New Members Orientation</u></p>' \
-                        '<p>Happening Tuesday, Sept. 29th from 4-6pm at Osbourne, the New Members Orientation will be introducing the club to all you newbies. '\
+                        '<p>Happening Tuesday, Sept. 29th from 4-6pm at Osbourne, all new members are invited to attend the New Members Orientation where we\'ll be introducing the club to all you newbies. '\
                         'This event is for <i>new</i> members only.</p>' \
                         '<p><u>IceBreaker!</u></p>' \
-                        '<p><i>Question:</i> how heavy is a polar bear? <i>Answer:</i> enough to break the ice! =P</p> '\
-                        '<p>Be sure to sign up for our IceBreaker event which is happening Friday, Oct. 2 at 4:30pm (2 hours before the first Friday gym night). </p>'\
-                        '<p>For further details, check us out on our webpage. ' 
+                        '<p><i>Question:</i> how heavy is a polar bear? <i>Answer:</i> enough to break the ice! Hehe. '\
+                        'Be sure to sign up for our IceBreaker event which is happening Friday, Oct. 2 at 4:30pm (2 hours before the first Friday gym night). </p>'\
+                        '<p>For more information about any of these events or about the club itself, check us out on our webpage. ' 
 
             email = SendMail(users.get_current_user().email(),
                             member.email, 
