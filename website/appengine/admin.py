@@ -148,7 +148,7 @@ class MemberEditPage(webapp.RequestHandler):
                 member.email = email
 
             member.put()
-
+            
             message = "Saved member information"
             urllib.quote(message)
 

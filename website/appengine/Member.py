@@ -3,6 +3,7 @@ import logging
 from google.appengine.ext import db
 
 class Member(db.Model):
+    maxMembers = 150
     createDate = db.DateTimeProperty(auto_now_add=True)
     firstName = db.StringProperty(required=True)
     lastName = db.StringProperty(required=True)
@@ -82,8 +83,17 @@ class Member(db.Model):
                 prevMemberNo = memberNo
             else:
                 break
-
+        
         return prevMemberNo + 1
+
+    @staticmethod
+    def isFull():
+        memberList = Member.all()
+        if memberList.count() < Member.maxMembers:
+            return False
+        else:
+            logging.warn("Membership Full")
+            return True
 
     @staticmethod
     def isValidEmail(email):

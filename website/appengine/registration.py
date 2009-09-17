@@ -76,9 +76,21 @@ class RegisterPage(webapp.RequestHandler):
         return template_values
 
     def get(self):
-        template_values = self.getFormTemplate('', '')
-        path = os.path.join(os.path.dirname(__file__), 'templates', 'registerForm.html')
-        self.response.out.write(template.render(path, template_values))
+        if Member.isFull():
+            pageContent = "Oh Noes! Membership is full! " \
+                          "Due to limited gym space, we are only able to accept a limited amount of members. " \
+                          "<p>You can place your name and contact information on the waitlist in the scenario that room in the club is available.</p>"
+ 
+            template_values = {
+                'content' : pageContent
+            }
+       
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
+            self.response.out.write(template.render(path, template_values))
+        else:
+            template_values = self.getFormTemplate('', '')
+            path = os.path.join(os.path.dirname(__file__), 'templates', 'registerForm.html')
+            self.response.out.write(template.render(path, template_values))
 
     def post(self):
         firstName = self.getInput('firstName')
