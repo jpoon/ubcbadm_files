@@ -199,13 +199,19 @@ class DonePage(webapp.RequestHandler):
             member = db.get(key)
 
             msgBody =   member.firstName + ', \n\n' \
-                        'Welcome to the UBC Badminton Club! ' \
-                        'For Term 1, gym nights will be Tuesday from 4-6pm and Fridays from 6:30-11pm. ' \
-                        'The first gym night (Tuesday, Sept. 29) will be an orientation to new members and will therefore be open to NEW members only. '\
-                        'For all other members, Friday, Oct. 2, will be the first gym night open to all members (both returning and new). ' \
-                        'Be sure to check us out on our website for further details. \n\n' \
+                        '<p>Welcome to the world of UBC Badminton! Your confirmation code is <i>' + member.emailHash + '</i>. Here\'s some useful information:</p>' \
                         'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
-                        + member.getActivateUrl(self) 
+                        + member.getActivateUrl(self) + '</p>' \
+                        '<p><u>Gym Nights:</u></p>' \
+                        '<p>For term 1, gym nights will be Tuesdays from 4-6pm and Fridays from 6:30-11pm. ' \
+                        'Gym nights are held at the Osbourne Center - Gym A (next to Thunderbird Arena).</p>' \
+                        '<p><u>New Members Orientation</u></p>' \
+                        '<p>Happening Tuesday, Sept. 29th from 4-6pm at Osbourne, the New Members Orientation will be introducing the club to all you newbies. '\
+                        'This event is for <i>new</i> members only.</p>' \
+                        '<p><u>IceBreaker!</u></p>' \
+                        '<p><i>Question:</i> how heavy is a polar bear? <i>Answer:</i> enough to break the ice! =P</p> '\
+                        '<p>Be sure to sign up for our IceBreaker event which is happening Friday, Oct. 2 at 4:30pm (2 hours before the first Friday gym night). </p>'\
+                        '<p>For further details, check us out on our webpage. ' 
 
             email = SendMail(users.get_current_user().email(),
                             member.email, 
@@ -214,10 +220,12 @@ class DonePage(webapp.RequestHandler):
             email.send()
 
             pageContent = '<p>' + member.firstName + ',</p>' \
-                          '<p>Congratulations on becoming a member of the UBC Badminton Club!</p>' \
-                          '<p>Tuesday, Sept. 29th will be an orientation for <b>new</b> members. ' \
-                          'Friday, Oct. 2nd will be the first gym night open to all members (new and returning).</p>' \
-                          '<p>Be sure to check your inbox for further UBC Badminton news!</p> ' 
+                          '<p>Woot! Congratulations on becoming a member of the UBC Badminton Club! Your confirmation code is <i>' + member.emailHash + '</i>.</p>' \
+                          '<p><b>Important Dates:</b></p>' \
+                          '<ul><li><i>Tuesday, Sept. 29</i> - New Members Orientation. We\'ll introduce the world of UBC Badminton to all the newbies. As such, gym night will be open to <u>new</u> members only.</li>' \
+                          '    <li><i>Friday, Oct. 2</i> - IceBreaker! and first gym night open to all members (new and returning)</li></ul>' \
+                          '<p>Don\'t worry about copy all this information down. ' \
+                          'An email was just sent to your inbox containing the same information.</p>'
 
             urlList = []
             urlList.append(Url('Back', '/register'))
