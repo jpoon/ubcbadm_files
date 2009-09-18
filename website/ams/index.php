@@ -32,8 +32,8 @@ require_once ('include/html_head.php');
 
             <div id="rightcontent">
 	        	<h2>Club Days</h2>
-                <span class="date">Sept. 9, 2009</span>
-                	Welcome back to school! Be sure to drop by our booth during Club Days (Sept. 23-25) to join the badminton club.
+                <span class="date">Sept. 17, 2009</span>
+                	How do I join the badminton club? Well, that's a great question! Just drop by our booth (located in the SUB Partyroom) during Club Days which is happening Sept. 23-25.
             </div>
 
         </div>
