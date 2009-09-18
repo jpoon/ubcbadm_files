@@ -20,7 +20,7 @@ class Member(db.Model):
     def Create(self):
         hash = hashlib.md5()
         hash.update(self.email)
-        self.emailHash = hash.hexdigest()
+        self.emailHash = hash.hexdigest()[:10]
         self.emailVerified = False
         self.put()
         logging.info('Creating member with id %i' % self.memberNo)

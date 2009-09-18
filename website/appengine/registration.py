@@ -198,11 +198,11 @@ class DonePage(webapp.RequestHandler):
             key = db.Key(key_name)
             member = db.get(key)
 
-            msgBody =   member.firstName + ', \n\n' \
-                        '<p>Welcome to the world of UBC Badminton! Your confirmation code is <i>' + member.emailHash + '</i>. ' \
+            msgBody =   'Hello ' + member.firstName + ', \n\n' \
+                        '<p>Welcome to the world of UBC Badminton!' \
                         'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
-                        + member.getActivateUrl(self) + \
-                        'Here\'s some useful information regarding upcoming events:</p>' \
+                        + member.getActivateUrl(self) + '.</p>' \
+                        '<p>Here is some useful information regarding upcoming events:</p>' \
                         '<p><u>Gym Nights:</u></p>' \
                         '<p>For term 1, gym nights will be Tuesdays from 4-6pm and Fridays from 6:30-11pm. ' \
                         'The last gym night of Term 1 will be Friday, Dec. 4. '\
@@ -212,12 +212,13 @@ class DonePage(webapp.RequestHandler):
                         'This event is for <i>new</i> members only.</p>' \
                         '<p><u>IceBreaker!</u></p>' \
                         '<p><i>Question:</i> how heavy is a polar bear? <i>Answer:</i> enough to break the ice! Hehe. '\
-                        'Be sure to sign up for our IceBreaker event which is happening Friday, Oct. 2 at 4:30pm (2 hours before the first Friday gym night). </p>'\
+                        'Be sure to sign up for our IceBreaker event which is happening Friday, Oct. 2 at 4:30pm (2 hours before the first Friday gym night). '\
+                        'If you want to sign up, email us!</p>'\
                         '<p>For more information about any of these events or about the club itself, check us out on our webpage. ' 
 
             email = SendMail(users.get_current_user().email(),
                             member.email, 
-                            'Registration',
+                            'Registration Confirmation ' + member.emailHash,
                             msgBody)
             email.send()
 
