@@ -8,12 +8,21 @@
 <div id="container">
 
     <p>{{ member.firstName }},</p>
-    <p>Congratulations and thank you for becoming a member of the UBC Badminton Club!</p>
-    <p>The first gym night will be Tuesday, Sept. 29 for <b>new</b> members.
-       Friday, Oct. 2 will be the first gym night open to all members</p>
-    <p>Please check your inbox to validate your email of <i>{{ member.email }}</i> so that we can keep you informed of badminton news/events.</p>
+    <p>Congratulations on becoming a member of the UBC Badminton Club!</p>
+    <p>New Members Orientation (for <b>new</b> members only) will be happening Tuesday, Sept. 29 from 4-6pm at Osbourne.
+       Friday, Oct. 2 will mark the first gym night open to all members</p>
+    <p>In order to join the UBC Badminton mailing list, please check your inbox and validate your email of <i>{{ member.email }}</i>.</p>
     <div id="footer">
-        <a href="{{ backUrl }}">Back</a>
+        {% for url in urlList %}
+            <a href="{{ url.url }}">{{ url.urlName }}</a>
+            {% if not forloop.last %}
+                |
+            {% endif %}
+        {% endfor %}
+
+        {% if not urlList %}
+        <a href="www.ams.ubc.ca/clubs/badminton">Website</a> | <a href="mailto:ubc.badm@gmail.com">Email</a>
+        {% endif %}
     </div>
 
 </div>

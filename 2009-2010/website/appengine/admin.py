@@ -3,6 +3,7 @@ import cgi
 import logging
 import urllib
 from Member import *
+from Template import *
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
@@ -19,10 +20,13 @@ class AdminPage(webapp.RequestHandler):
         content = """<p><a href="/admin/memberList">Member List</a></p>
                      <p><a href="/admin/mailingList">Member Emails</a></p>"""
 
+        urlList = []
+        urlList.append(Url('Home', '/admin'))
+        urlList.append(Url('Logout', users.create_logout_url(self.request.uri)))
+
         template_values = {
             'content' : content,
-            'homeUrl' : "/admin",
-            'logoutUrl': users.create_logout_url(self.request.uri)
+            'urlList' : urlList
         }
 
         path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
@@ -32,10 +36,13 @@ class MemberMailingListPage(webapp.RequestHandler):
     def get(self):
         content = """<span id="emails">""" + Member.getAllEmails() + """</span>"""
 
+        urlList = []
+        urlList.append(Url('Home', '/admin'))
+        urlList.append(Url('Logout', users.create_logout_url(self.request.uri)))
+
         template_values = {
             'content' : content,
-            'homeUrl' : "/admin",
-            'logoutUrl': users.create_logout_url(self.request.uri)
+            'urlList' : urlList
         }
 
         path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
@@ -46,12 +53,16 @@ class MemberListPage(webapp.RequestHandler):
         msg = self.request.get("msg")
         sortMethod = self.request.get("sort")
 
+        urlList = []
+        urlList.append(Url('Home', '/admin'))
+        urlList.append(Url('Logout', users.create_logout_url(self.request.uri)))
+
         template_values = {
             'message': msg,
-            'memberList': Member.getMemberList(sortMethod),
-            'homeUrl': "/admin",
-            'logoutUrl': users.create_logout_url(self.request.uri)
+            'memberList' : Member.getMemberList(sortMethod),
+            'urlList' : urlList
         }
+
         path = os.path.join(os.path.dirname(__file__), 'templates', 'memberList.html')
         self.response.out.write(template.render(path, template_values))
 
@@ -65,12 +76,16 @@ class MemberEditPage(webapp.RequestHandler):
         message = "Action Canceled"
         urllib.quote(message)
 
+        urlList = []
+        urlList.append(Url('Cancel', '/admin/memberList?msg='+message))
+        urlList.append(Url('Logout', users.create_logout_url(self.request.uri)))
+
         template_values = {
             'id': emailHash,
             'member': Member.getMember(emailHash),
-            'cancelUrl': "/admin/memberList?msg="+message,
-            'logoutUrl': users.create_logout_url(self.request.uri)
+            'urlList' : urlList
         }
+
         path = os.path.join(os.path.dirname(__file__), 'templates', 'memberEdit.html')
         self.response.out.write(template.render(path, template_values))
 
@@ -100,11 +115,14 @@ class MemberEditPage(webapp.RequestHandler):
                 message = "Action Canceled"
                 urllib.quote(message)
 
+                urlList = []
+                urlList.append(Url('Cancel', '/admin/memberList?msg='+message))
+                urlList.append(Url('Logout', users.create_logout_url(self.request.uri)))
+
                 template_values = {
                     'emailHash': emailHash,
                     'memberEditList': memberEditList,
-                    'cancelUrl': '/admin/memberList?msg='+message,
-                    'logoutUrl': users.create_logout_url(self.request.uri)
+                    'urlList' : urlList
                 }
 
                 path = os.path.join(os.path.dirname(__file__), 'templates', 'memberEditConfirm.html')
@@ -130,7 +148,7 @@ class MemberEditPage(webapp.RequestHandler):
                 member.email = email
 
             member.put()
-
+            
             message = "Saved member information"
             urllib.quote(message)
 
