@@ -31,9 +31,13 @@ require_once ('include/html_head.php');
     	    </div>
 
             <div id="rightcontent">
-	        	<h2>Club Days</h2>
-                <span class="date">Sept. 17, 2009</span>
-                	How do I join the badminton club? Well, that's a great question! Just drop by our booth (located in the SUB Partyroom) during Club Days which is happening Sept. 23-25.
+	        	<h2>Join the Club!</h2>
+                <span class="date">Sept. 21, 2009</span>
+                	To join the badminton club, drop by our booth (located in the SUB Partyroom) during Club Days.
+
+	        	<h2>Club Days Hours</h2>
+                <span class="date">Sept. 21, 2009</span>
+                    Club Days is happening Wednesday (Sept. 23) to Friday (Sept. 25). The hours for each day are Wednesday and Thursday from 10-4:30pm and Friday from 10-1:30pm.
             </div>
 
         </div>
