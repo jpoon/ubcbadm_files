@@ -199,7 +199,7 @@ class DonePage(webapp.RequestHandler):
             member = db.get(key)
 
             msgBody =   'Hello ' + member.firstName + ', \n\n' \
-                        '<p>Welcome to the world of UBC Badminton!' \
+                        '<p>Welcome to the world of UBC Badminton! ' \
                         'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
                         + member.getActivateUrl(self) + '.</p>' \
                         '<p>Here is some useful information regarding upcoming events:</p>' \
@@ -213,7 +213,7 @@ class DonePage(webapp.RequestHandler):
                         '<p><u>IceBreaker!</u></p>' \
                         '<p><i>Question:</i> how heavy is a polar bear? <i>Answer:</i> enough to break the ice! Hehe. '\
                         'Be sure to sign up for our IceBreaker event which is happening Friday, Oct. 2 at 4:30pm (2 hours before the first Friday gym night). '\
-                        'If you want to sign up, email us!</p>'\
+                        'If you want to sign up, let us know by emailing us!</p>'\
                         '<p>For more information about any of these events or about the club itself, check us out on our webpage. ' 
 
             email = SendMail(users.get_current_user().email(),
