@@ -172,6 +172,7 @@ class ConfirmPage(webapp.RequestHandler):
 
             template_values = {
                 'key': key,
+                'ubcAffliation': member.ubcAffliation,
                 'memberType': member.memberType,
                 'urlList': urlList
             }

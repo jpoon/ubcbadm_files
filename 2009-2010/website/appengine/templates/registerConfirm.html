@@ -17,15 +17,23 @@
             action="/register/confirm?id={{ key }}" 
             method="post" 
             onSubmit="return validateForm(this.id);">
-        <p> Now that we have all your information, in order to proceed with registration, your membership dues will need to be paid in full.
-            Being a {{ memberType }} member, the membership cost is 
-            <b>
-            {% ifequal memberType "New" %}
-                $50
-            {% else %}
-                $40
-            {% endifequal %} 
-            </b>.</p>
+        <p> Now that we have all your information, in order to proceed with registration, we require... </p>
+        <ol><li>Proof of membership in the AMS (i.e. your UBC card)</li>
+            <li>Membership dues will need to be paid in full. 
+                <b>
+                {% ifequal ubcAffliation "Other (Non-AMS)" %}
+                    As a Non-AMS (Associate) member, the membership cost is $70
+                {% else %}
+                    As a {{ memberType }} member, the membership cost is 
+                    {% ifequal memberType "New" %}
+                        $50
+                    {% else %}
+                        $40
+                    {% endifequal %}
+                {% endifequal %} 
+                </b>.</li>
+            <li>Your signature on the AMS Liability Waiver form</li>
+        </ol>
 
         <table id="registerForm">
             <tr>
