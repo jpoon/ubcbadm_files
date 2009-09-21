@@ -42,7 +42,7 @@ class RegisterPage(webapp.RequestHandler):
         types = []
         types.append("Student")
         types.append("Faculty")
-        types.append("Other")
+        types.append("Other (Non-AMS)")
 
         skillLevels = []
         skillLevels.append("Beginner")
@@ -144,6 +144,9 @@ class RegisterPage(webapp.RequestHandler):
 
             if ubcAffliation == 'Student':
                 member.studentNo = int(studentNo)
+
+            if ubcAffliation == 'Other':
+                member.memberType = "Non-AMS"
 
             key = str(datetime.now()) + str(member.email)
             hash = hashlib.md5()

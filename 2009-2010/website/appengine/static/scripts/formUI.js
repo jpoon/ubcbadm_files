@@ -2,7 +2,7 @@ var isStudent= false;
 
 function formOnLoad() {
     validateForm('memberRegistration');
-    setInterval( function() { validateForm('memberRegistration') }, 800);
+    setInterval( function() { validateForm('memberRegistration') }, 500);
 }
 
 function formConfirmOnLoad() {
@@ -22,16 +22,24 @@ function formRowUnhighlight(inputId) {
     obj.style.border = '0px';
 }
 
-function checkStudentStatus() {
+function checkUbcAffliation() {
     ubcAffliation = document.memberRegistration.ubcAffliation;
     for ( i=0; i<ubcAffliation.length; i++ ) {
         if( ubcAffliation[i].checked == true ) {
+            // Student Number 
             if( ubcAffliation[i].value == 'Student' ) {
                 showTr('studentNo_tr');
                 isStudent = true;
             } else {
                 hideTr('studentNo_tr'); 
                 isStudent = false;
+            }
+
+            // Other (Non-AMS)
+            if ( ubcAffliation[i].value == 'Other (Non-AMS)' ) {
+                hideTr('memberType_tr')
+            } else {
+                showTr('memberType_tr')
             }
             break;
         }
