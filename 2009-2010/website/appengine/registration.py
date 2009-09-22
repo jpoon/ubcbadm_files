@@ -281,7 +281,7 @@ class ActivationPage(webapp.RequestHandler):
 application = webapp.WSGIApplication(   [('/register', RegisterPage),
                                          ('/register/confirm', ConfirmPage),
                                          ('/register/done', DonePage),
-                                         ('/register/activate', ActivationPage)],
+                                         ('/activate', ActivationPage)],
                                         debug=True)
 
 def main():

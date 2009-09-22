@@ -21,6 +21,9 @@ handlers:
   login: admin
   secure: always
 
+- url: /activate.*
+  script: registration.py
+
 - url: /admin.*
   script: admin.py
   login: admin
