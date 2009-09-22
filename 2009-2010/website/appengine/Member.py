@@ -26,7 +26,7 @@ class Member(db.Model):
         logging.info('Creating member with id %i' % self.memberNo)
 
     def getActivateUrl(self, handler):
-        return handler.request.host_url + '/register/activate?verify=' + self.emailHash
+        return 'http://ubc-badm.appspot.com/activate?verify=' + self.emailHash
 
     @staticmethod
     def getAllEmails():
