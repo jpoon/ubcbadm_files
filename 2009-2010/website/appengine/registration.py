@@ -202,7 +202,7 @@ class DonePage(webapp.RequestHandler):
             key = db.Key(key_name)
             member = db.get(key)
 
-            msgBody =   'Hello ' + member.firstName + ', \n\n' \
+            msgBody =   'Hello ' + member.firstName + ' (aka. member number <b>' + str(member.memberNo) + '</b>), \n\n' \
                         '<p>Welcome to the world of UBC Badminton! ' \
                         'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
                         + member.getActivateUrl(self) + '.</p>' \
@@ -225,8 +225,8 @@ class DonePage(webapp.RequestHandler):
                             'Registration Confirmation ' + member.emailHash,
                             msgBody)
             email.send()
-
-            pageContent = '<p>' + member.firstName + ',</p>' \
+            
+            pageContent = '<p>' + member.firstName + ' (aka member number <b>' + str(member.memberNo) + '</b>),</p>' \
                           '<p>Woot! Congratulations on becoming a member of the UBC Badminton Club! Your confirmation code is <i>' + member.emailHash + '</i>.</p>' \
                           '<p><b>Important Dates:</b></p>' \
                           '<ul><li><i>Tuesday, Sept. 29</i> - New Members Orientation. We\'ll introduce the world of UBC Badminton to all the newbies. As such, gym night will be open to <u>new</u> members only.</li>' \
