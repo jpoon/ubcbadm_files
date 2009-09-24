@@ -13,7 +13,7 @@ class Member(db.Model):
     email = db.EmailProperty(required=True)
     memberType = db.StringProperty(required=True, choices=set(["New", "Returning", "Non-AMS"]))
     level = db.StringProperty(required=True, choices=set(["Beginner", "Intermediate I", "Intermediate II", "Advanced"]))
-    memberNo = db.IntegerProperty(required=True)
+    memberNo = db.IntegerProperty()
     emailHash = db.StringProperty()
     emailVerified = db.BooleanProperty()
 
@@ -74,17 +74,9 @@ class Member(db.Model):
 
     @staticmethod
     def nextAvailableMemberNo():
-        memberList = Member.getMemberList('memberNo')
-    
-        prevMemberNo = 0
-        for member in memberList:
-            memberNo = member.memberNo
-            if memberNo == (prevMemberNo + 1):
-                prevMemberNo = memberNo
-            else:
-                break
-        
-        return prevMemberNo + 1
+        memberList = Member.all()
+
+        return memberList.count() + 1;
 
     @staticmethod
     def isFull():

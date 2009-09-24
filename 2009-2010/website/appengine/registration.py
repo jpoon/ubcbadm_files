@@ -139,8 +139,7 @@ class RegisterPage(webapp.RequestHandler):
                             phoneNumber = phoneNumber,
                             email = email,
                             memberType = memberType,
-                            level = level,
-                            memberNo = Member.nextAvailableMemberNo())
+                            level = level)
 
             if ubcAffliation == 'Student':
                 member.studentNo = int(studentNo)
@@ -189,6 +188,7 @@ class ConfirmPage(webapp.RequestHandler):
             self.redirect("/register")
         else:
             # Create the member and delete cached object
+            member.memberNo = Member.nextAvailableMemberNo()
             member.Create()
             memcache.delete(key)
             logging.info('Memcache - Remove item with key %s ' % key)
