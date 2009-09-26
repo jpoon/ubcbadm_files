@@ -74,8 +74,8 @@ class Member(db.Model):
 
     @staticmethod
     def nextAvailableMemberNo():
+        # Bug: If an entry is deleted, there will be duplicate membership numbers
         memberList = Member.all()
-
         return memberList.count() + 1;
 
     @staticmethod
