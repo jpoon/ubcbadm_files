@@ -7,13 +7,13 @@ class Member(db.Model):
     createDate = db.DateTimeProperty(auto_now_add=True)
     firstName = db.StringProperty(required=True)
     lastName = db.StringProperty(required=True)
-    ubcAffliation = db.StringProperty(required=True, choices=set(["Student", "Faculty", "Other"]))
+    ubcAffliation = db.StringProperty(required=True, choices=set(["Student", "Faculty", "Other (Non-AMS)"]))
     studentNo = db.IntegerProperty()
     phoneNumber = db.PhoneNumberProperty(required=True)
     email = db.EmailProperty(required=True)
-    memberType = db.StringProperty(required=True, choices=set(["New", "Returning"]))
+    memberType = db.StringProperty(required=True, choices=set(["New", "Returning", "Non-AMS"]))
     level = db.StringProperty(required=True, choices=set(["Beginner", "Intermediate I", "Intermediate II", "Advanced"]))
-    memberNo = db.IntegerProperty(required=True)
+    memberNo = db.IntegerProperty()
     emailHash = db.StringProperty()
     emailVerified = db.BooleanProperty()
 
@@ -26,7 +26,7 @@ class Member(db.Model):
         logging.info('Creating member with id %i' % self.memberNo)
 
     def getActivateUrl(self, handler):
-        return handler.request.host_url + '/register/activate?verify=' + self.emailHash
+        return 'http://ubc-badm.appspot.com/activate?verify=' + self.emailHash
 
     @staticmethod
     def getAllEmails():
@@ -74,17 +74,9 @@ class Member(db.Model):
 
     @staticmethod
     def nextAvailableMemberNo():
-        memberList = Member.getMemberList('memberNo')
-    
-        prevMemberNo = 0
-        for member in memberList:
-            memberNo = member.memberNo
-            if memberNo == (prevMemberNo + 1):
-                prevMemberNo = memberNo
-            else:
-                break
-        
-        return prevMemberNo + 1
+        # Bug: If an entry is deleted, there will be duplicate membership numbers
+        memberList = Member.all()
+        return memberList.count() + 1;
 
     @staticmethod
     def isFull():

@@ -42,7 +42,7 @@ class RegisterPage(webapp.RequestHandler):
         types = []
         types.append("Student")
         types.append("Faculty")
-        types.append("Other")
+        types.append("Other (Non-AMS)")
 
         skillLevels = []
         skillLevels.append("Beginner")
@@ -139,11 +139,13 @@ class RegisterPage(webapp.RequestHandler):
                             phoneNumber = phoneNumber,
                             email = email,
                             memberType = memberType,
-                            level = level,
-                            memberNo = Member.nextAvailableMemberNo())
+                            level = level)
 
             if ubcAffliation == 'Student':
                 member.studentNo = int(studentNo)
+
+            if ubcAffliation == 'Other':
+                member.memberType = "Non-AMS"
 
             key = str(datetime.now()) + str(member.email)
             hash = hashlib.md5()
@@ -169,6 +171,7 @@ class ConfirmPage(webapp.RequestHandler):
 
             template_values = {
                 'key': key,
+                'ubcAffliation': member.ubcAffliation,
                 'memberType': member.memberType,
                 'urlList': urlList
             }
@@ -185,6 +188,7 @@ class ConfirmPage(webapp.RequestHandler):
             self.redirect("/register")
         else:
             # Create the member and delete cached object
+            member.memberNo = Member.nextAvailableMemberNo()
             member.Create()
             memcache.delete(key)
             logging.info('Memcache - Remove item with key %s ' % key)
@@ -198,8 +202,8 @@ class DonePage(webapp.RequestHandler):
             key = db.Key(key_name)
             member = db.get(key)
 
-            msgBody =   'Hello ' + member.firstName + ', \n\n' \
-                        '<p>Welcome to the world of UBC Badminton!' \
+            msgBody =   'Hello ' + member.firstName + ' (aka. member number <b>' + str(member.memberNo) + '</b>), \n\n' \
+                        '<p>Welcome to the world of UBC Badminton! ' \
                         'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
                         + member.getActivateUrl(self) + '.</p>' \
                         '<p>Here is some useful information regarding upcoming events:</p>' \
@@ -213,7 +217,7 @@ class DonePage(webapp.RequestHandler):
                         '<p><u>IceBreaker!</u></p>' \
                         '<p><i>Question:</i> how heavy is a polar bear? <i>Answer:</i> enough to break the ice! Hehe. '\
                         'Be sure to sign up for our IceBreaker event which is happening Friday, Oct. 2 at 4:30pm (2 hours before the first Friday gym night). '\
-                        'If you want to sign up, email us!</p>'\
+                        'If you want to sign up, let us know by emailing us!</p>'\
                         '<p>For more information about any of these events or about the club itself, check us out on our webpage. ' 
 
             email = SendMail(users.get_current_user().email(),
@@ -221,8 +225,8 @@ class DonePage(webapp.RequestHandler):
                             'Registration Confirmation ' + member.emailHash,
                             msgBody)
             email.send()
-
-            pageContent = '<p>' + member.firstName + ',</p>' \
+            
+            pageContent = '<p>' + member.firstName + ' (aka member number <b>' + str(member.memberNo) + '</b>),</p>' \
                           '<p>Woot! Congratulations on becoming a member of the UBC Badminton Club! Your confirmation code is <i>' + member.emailHash + '</i>.</p>' \
                           '<p><b>Important Dates:</b></p>' \
                           '<ul><li><i>Tuesday, Sept. 29</i> - New Members Orientation. We\'ll introduce the world of UBC Badminton to all the newbies. As such, gym night will be open to <u>new</u> members only.</li>' \
@@ -277,7 +281,7 @@ class ActivationPage(webapp.RequestHandler):
 application = webapp.WSGIApplication(   [('/register', RegisterPage),
                                          ('/register/confirm', ConfirmPage),
                                          ('/register/done', DonePage),
-                                         ('/register/activate', ActivationPage)],
+                                         ('/activate', ActivationPage)],
                                         debug=True)
 
 def main():
