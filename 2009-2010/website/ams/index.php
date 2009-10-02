@@ -31,13 +31,11 @@ require_once ('include/html_head.php');
     	    </div>
 
             <div id="rightcontent">
-	        	<h2>Join the Club!</h2>
-                <span class="date">Sept. 21, 2009</span>
-                	To join the badminton club, drop by our booth (located in the SUB Partyroom) during Club Days.
-
-	        	<h2>Club Days Hours</h2>
-                <span class="date">Sept. 21, 2009</span>
-                    Club Days is happening Wednesday (Sept. 23) to Friday (Sept. 25). The hours for each day are Wednesday and Thursday from 10-4:30pm and Friday from 10-1:30pm.
+                <h2>IceBreaker</h2>
+                <span class="date">Sept. 28, 2009</span>
+                    IceBreaker is happening on Friday, Oct. 2 from 4:30-6:30pm (two hours before the first gym night).
+                    Meet at Osbourne Gym promptly at 4:30pm to start! There are prizes to be won and food will be provided later in the evening.
+                    Be sure to bring your camera!
             </div>
 
         </div>

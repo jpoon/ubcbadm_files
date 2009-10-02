@@ -29,6 +29,10 @@ require_once ('include/html_head.php');
 			    	<td>Returning Members:</td>
 				    <td>$40</td>
     			</tr>
+                <tr>
+                    <td>Non-AMS Members:</td>
+                    <td>$60</td>
+                </tr>
 	    	</table>
             <p>Due to limited gym space, we are only able to accomodate a certain number of members year. 
             Membership will be given on a first come-first served basis.</p>
