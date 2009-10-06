@@ -45,40 +45,40 @@ ftp> mput ..\ams\*.php
 150 Opening ASCII mode data connection for aboutus.php.
 226 Transfer complete.
 ftp: 2508 bytes sent in Seconds Kbytes/sec.
-0.1813.86200 PORT command successful.
+0.0643.24200 PORT command successful.
 150 Opening ASCII mode data connection for index.php.
 226 Transfer complete.
-ftp: 1685 bytes sent in Seconds Kbytes/sec.
-0.414.15200 PORT command successful.
+ftp: 1582 bytes sent in Seconds Kbytes/sec.
+0.0298.88200 PORT command successful.
 150 Opening ASCII mode data connection for membership.php.
 226 Transfer complete.
-ftp: 2376 bytes sent in Seconds Kbytes/sec.
-0.376.39200 PORT command successful.
+ftp: 2498 bytes sent in Seconds Kbytes/sec.
+0.0552.04200 PORT command successful.
 150 Opening ASCII mode data connection for photo.php.
 226 Transfer complete.
 ftp: 3464 bytes sent in Seconds Kbytes/sec.
-0.844.14200 PORT command successful.
+0.2116.19200 PORT command successful.
 150 Opening ASCII mode data connection for photo_redirect.php.
 226 Transfer complete.
 ftp: 2348 bytes sent in Seconds Kbytes/sec.
-1.152.05200 PORT command successful.
+0.0378.27200 PORT command successful.
 150 Opening ASCII mode data connection for schedule.php.
 226 Transfer complete.
 ftp: 1467 bytes sent in Seconds Kbytes/sec.
-0.178.84200 PORT command successful.
+0.0435.78200 PORT command successful.
 150 Opening ASCII mode data connection for search.php.
 226 Transfer complete.
 ftp: 924 bytes sent in Seconds Kbytes/sec.
-0.322.85200 PORT command successful.
+0.194.91200 PORT command successful.
 150 Opening ASCII mode data connection for tournament.php.
 226 Transfer complete.
 ftp: 2818 bytes sent in Seconds Kbytes/sec.
-ftp> 0.2710.51mput ..\ams\*.xml
+ftp> 0.0397.17mput ..\ams\*.xml
 200 PORT command successful.
 150 Opening ASCII mode data connection for sitemap.xml.
 226 Transfer complete.
 ftp: 1281 bytes sent in Seconds Kbytes/sec.
-ftp> 0.373.49ftp> 
+ftp> 0.196.78ftp> 
 mkdir imgs
 550 imgs: Cannot create a file when that file already exists. 
 ftp> cd imgs
@@ -88,36 +88,36 @@ ftp> mput ..\ams\imgs\*.jpg
 150 Opening ASCII mode data connection for bg.jpg.
 226 Transfer complete.
 ftp: 10551 bytes sent in Seconds Kbytes/sec.
-1.905.56200 PORT command successful.
+0.2346.07200 PORT command successful.
 150 Opening ASCII mode data connection for execs.jpg.
 226 Transfer complete.
 ftp: 79900 bytes sent in Seconds Kbytes/sec.
-9.538.38200 PORT command successful.
+2.1137.80200 PORT command successful.
 150 Opening ASCII mode data connection for floor.jpg.
 226 Transfer complete.
 ftp: 55097 bytes sent in Seconds Kbytes/sec.
-5.1710.66200 PORT command successful.
+1.4338.45200 PORT command successful.
 150 Opening ASCII mode data connection for header.jpg.
 226 Transfer complete.
 ftp: 25604 bytes sent in Seconds Kbytes/sec.
-2.0412.55200 PORT command successful.
+0.8629.67200 PORT command successful.
 150 Opening ASCII mode data connection for osbourne.jpg.
 226 Transfer complete.
 ftp: 34257 bytes sent in Seconds Kbytes/sec.
-2.3314.68200 PORT command successful.
+0.8938.71200 PORT command successful.
 150 Opening ASCII mode data connection for serve.jpg.
 226 Transfer complete.
 ftp: 149947 bytes sent in Seconds Kbytes/sec.
-ftp> 12.5211.97mput ..\ams\imgs\*.gif
+ftp> 4.7131.86mput ..\ams\imgs\*.gif
 200 PORT command successful.
 150 Opening ASCII mode data connection for close.gif.
 226 Transfer complete.
 ftp: 109 bytes sent in Seconds Kbytes/sec.
-0.230.47200 PORT command successful.
+0.130.83200 PORT command successful.
 150 Opening ASCII mode data connection for loading.gif.
 226 Transfer complete.
 ftp: 2364 bytes sent in Seconds Kbytes/sec.
-ftp> 0.01157.60ftp> 
+ftp> 0.0462.21ftp> 
 cd ..
 250 CWD command successful.
 ftp> ftp> 
@@ -130,23 +130,23 @@ ftp> mput ..\ams\include\*.php
 150 Opening ASCII mode data connection for footer.php.
 226 Transfer complete.
 ftp: 96 bytes sent in Seconds Kbytes/sec.
-0.270.36200 PORT command successful.
+0.130.73200 PORT command successful.
 150 Opening ASCII mode data connection for header.php.
 226 Transfer complete.
 ftp: 590 bytes sent in Seconds Kbytes/sec.
-0.153.99200 PORT command successful.
+0.292.01200 PORT command successful.
 150 Opening ASCII mode data connection for html_head.php.
 226 Transfer complete.
 ftp: 1964 bytes sent in Seconds Kbytes/sec.
-0.02122.75200 PORT command successful.
+0.0449.10200 PORT command successful.
 150 Opening ASCII mode data connection for navigation.php.
 226 Transfer complete.
 ftp: 593 bytes sent in Seconds Kbytes/sec.
-0.183.29200 PORT command successful.
+0.202.95200 PORT command successful.
 150 Opening ASCII mode data connection for PhotoGalleryXmlParser.php.
 226 Transfer complete.
 ftp: 2342 bytes sent in Seconds Kbytes/sec.
-ftp> 0.02130.11ftp> 
+ftp> 0.0375.55ftp> 
 cd ..
 250 CWD command successful.
 ftp> ftp> 
@@ -159,15 +159,15 @@ ftp> mput ..\ams\scripts\*.js
 150 Opening ASCII mode data connection for autoExpand.js.
 226 Transfer complete.
 ftp: 14972 bytes sent in Seconds Kbytes/sec.
-1.4510.35200 PORT command successful.
+0.4930.68200 PORT command successful.
 150 Opening ASCII mode data connection for googleSearchResults.js.
 226 Transfer complete.
 ftp: 2934 bytes sent in Seconds Kbytes/sec.
-0.476.22200 PORT command successful.
+0.2113.71200 PORT command successful.
 150 Opening ASCII mode data connection for lightbox.js.
 226 Transfer complete.
 ftp: 12181 bytes sent in Seconds Kbytes/sec.
-ftp> 0.6618.51ftp> 
+ftp> 0.4030.38ftp> 
 cd ..
 250 CWD command successful.
 ftp> ftp> 
@@ -180,10 +180,10 @@ ftp> mput ..\ams\styles\*.css
 150 Opening ASCII mode data connection for lightbox.css.
 226 Transfer complete.
 ftp: 630 bytes sent in Seconds Kbytes/sec.
-0.212.97200 PORT command successful.
+0.213.03200 PORT command successful.
 150 Opening ASCII mode data connection for main.css.
 226 Transfer complete.
-ftp: 2920 bytes sent in Seconds Kbytes/sec.
-ftp> 0.02171.76ftp> 
+ftp: 2915 bytes sent in Seconds Kbytes/sec.
+ftp> 0.0472.88ftp> 
 bye
 221  

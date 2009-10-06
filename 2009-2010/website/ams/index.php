@@ -31,11 +31,9 @@ require_once ('include/html_head.php');
     	    </div>
 
             <div id="rightcontent">
-                <h2>IceBreaker</h2>
-                <span class="date">Sept. 28, 2009</span>
-                    IceBreaker is happening on Friday, Oct. 2 from 4:30-6:30pm (two hours before the first gym night).
-                    Meet at Osbourne Gym promptly at 4:30pm to start! There are prizes to be won and food will be provided later in the evening.
-                    Be sure to bring your camera!
+                <h2>No Drop-Ins</h2>
+                <span class="date">Oct. 5, 2009</span>
+                    Just a reminder that there are no drop-ins until November.
             </div>
 
         </div>
