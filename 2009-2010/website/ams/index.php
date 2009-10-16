@@ -31,6 +31,9 @@ require_once ('include/html_head.php');
     	    </div>
 
             <div id="rightcontent">
+                <h2>Feather Night</h2>
+                <span class="date">Oct. 15, 2009</span>
+                    Feathers Night on Oct. 16! Members will have the option of playing with either nylon or feather birds. Reminder: no drop-ins.
                 <h2>No Drop-Ins</h2>
                 <span class="date">Oct. 5, 2009</span>
                     Just a reminder that there are no drop-ins until November.
