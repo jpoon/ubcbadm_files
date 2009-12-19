@@ -36,9 +36,7 @@ echo $htmlTitle;
 <meta name="keywords" content="badminton, racket, racquet, shuttlecock, birdie, UBC, British Columbia, Vancouver, Osbourne, AMS" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" />
-<link rel="stylesheet" href="styles/lightbox.css" type="text/css" />
 <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon" />
-<script type="text/javascript" src="scripts/lightbox.js"></script>
 <script type="text/javascript" src="scripts/autoExpand.js" ></script>
 <?php # Google Analytics ?>
 <script type="text/javascript">
