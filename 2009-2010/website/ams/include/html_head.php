@@ -18,11 +18,11 @@ switch(basename($_SERVER['PHP_SELF'], ".php" )) {
         break;
 
     case "membership":
-        $htmlTitle .= " - Club Membership";
+        $htmlTitle .= " - Membership";
         break;
 
-    case "tournament":
-        $htmlTitle .= " - Open Tournament";
+    case "doublesleague":
+        $htmlTitle .= " - Doubles League";
         break;
 
     case "photo":

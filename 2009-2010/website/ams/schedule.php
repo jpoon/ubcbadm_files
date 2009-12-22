@@ -36,8 +36,13 @@ require_once ('include/html_head.php');
 				<td>6:30 - 11:00 PM</td>
 			</tr>
 			<tr>
-				<td valign="top">Term 2</td>
-				<td colspan="2">TBD</td>
+				<td rowspan="2" valign="top" width="50px">Term 2</td>
+				<td width="50px">Tuesday</td>
+				<td>5:30 - 7:30 PM</td>
+			</tr>
+			<tr>
+				<td>Friday</td>
+				<td>7:00 - 11:00 PM</td>
 			</tr>
 		    </table>
 

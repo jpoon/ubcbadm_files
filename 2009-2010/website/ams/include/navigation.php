@@ -13,7 +13,7 @@
 			<td><a href="membership.php" title="Membership">membership</a></td>
 		</tr>
 		<tr>
-			<td><a href="tournament.php" title="Tournament">tournament</a></td>
+			<td><a href="doublesleague.php" title="Doubles League">doubles league</a></td>
 		</tr>
 		<tr>
 			<td><a href="photo.php" title="Photo Gallery">photo gallery</a></td>

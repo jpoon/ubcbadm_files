@@ -31,15 +31,21 @@ require_once ('include/html_head.php');
     	    </div>
 
             <div id="rightcontent">
-                <h2>Feather Night</h2>
-                <span class="date">Oct. 15, 2009</span>
-                    Feathers Night on Oct. 16! Members will have the option of playing with either nylon or feather birds. Reminder: no drop-ins.
-                <h2>No Drop-Ins</h2>
-                <span class="date">Oct. 5, 2009</span>
-                    Just a reminder that there are no drop-ins until November.
-            </div>
 
-        </div>
+ 
+                <h2>Last Gym Night of Term 1</h2> 
+                <span class="date">Dec. 4, 2009</span> 
+                The last gym night of term 1 will be Dec. 4 which is also the last day of classes.
+
+                <h2>Doubles League System</h2>
+                <span class="date">Ongoing for Second Term 2010</span>
+                What's it about? Click <a href="doublesleague.php">here</a> for more information!
+
+                <h2>Want to Join the Exec Team 2010-2011?</h2>
+                Talk to one of the current executives for more details.
+          </div>
+
+      </div>
         <div class="clear"></div>
     </div>
     <?php
