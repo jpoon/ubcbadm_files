@@ -23,66 +23,36 @@ require_once ('include/html_head.php');
             encouraging the sport of badminton. </p>
 
     		<h1>Executives</h1>
-		
 	    	<img src="imgs/execs.jpg" id="img07Execs" alt="'07 Execs" />
-				
-    		<table border="1">		
-	    		<tr>
-		    		<td width="130px">President</td>
-			    	<td>Jason Poon</td>
-    			</tr>
-	    		<tr>
-		    		<td>Vice-President</td>
-			    	<td>Bernard Cheung</td>
-    			</tr>
-	    		<tr>
-		    		<td>Finance</td>
-			    	<td>Nina Kao</td>
-    			</tr>
-	    		<tr>
-		    		<td>Membership</td>
-			    	<td>Patrick Shyong</td>
-    			</tr>
-		    		<td rowspan="4" valign="top">Public Relations</td>
-			    </tr>
-       			<tr>
-	    			<td>Andrew Li</td>
-    			</tr>
-	    		<tr>
-		    		<td>Kiki Chan</td>
-    			</tr>
-    			<tr>
-		    		<td>Stephanie Lee</td>
-    			</tr>
-                
-		    		<td rowspan="4" valign="top">Special Events</td>
-			    </tr>
-       			<tr>
-	    			<td>Andy Chow</td>
-    			</tr>
-	    		<tr>
-		    		<td>Peter Liang</td>
-    			</tr>
-    			<tr>
-		    		<td>Zong Chua</td>
-    			</tr>
-		    		  <td rowspan="4" valign="top">Operations</td>
-			    </tr>
-       			<tr>
-	    			<td>Alvin Tse</td>
-    			</tr>
-	    		<tr>
-		    		<td>Justin Lew</td>
-    			</tr>
-    			<tr>
-		    		<td>Michelle Tran</td>
-    			</tr>
 
-            </table>
+            <script type="text/javascript">
+              $(document).ready(function(){
+                $("#accordion").accordion({
+                    autoHeight:false,
+                });
+              });
+            </script>
+
+            <div id="accordion" style="width:300px;">
+                <p><a href="#">President</a></p>
+                <div>Jason Poon</div>
+                <p><a href="#">Vice-President</a></p>
+                <div>Bernard Cheung</div>
+                <p><a href="#">Finance</a></p>
+                <div>Nina Kao</div>
+                <p><a href="#">Membership</a></p>
+                <div>Patrick Shyong</div>
+                <p><a href="#">Public Relations</a></p>
+                <div>Andrew Li, Kiki Chan, Stephanie Lee</div>
+                <p><a href="#">Special Events</a></p>
+                <div>Andy Chow, Peter Liang, Zonghe Chua</div>
+                <p><a href="#">Operations</a></p>
+                <div>Alvin Tse, Justin Lew, Michelle Tran</div>
+            </div>			
         </div>
     </div>
-	<?php
-	require_once ('include/footer.php');
+    <?php
+    require_once ('include/footer.php');
     ?>
 </div>
 </body>
