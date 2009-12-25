@@ -36,13 +36,12 @@ echo $htmlTitle;
 <meta name="keywords" content="badminton, racket, racquet, shuttlecock, birdie, UBC, British Columbia, Vancouver, Osbourne, AMS" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" />
+<link rel="stylesheet" href="theme/ui.all.css" type="text/css" />
 <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
     google.load("jquery", "1.3.2")
     google.load("jqueryui", "1.7.2")
-</script>
-<script type="text/javascript" src="scripts/popup.js"></script>
 </script>
 <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
