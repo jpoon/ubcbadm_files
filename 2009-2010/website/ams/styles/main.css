@@ -14,10 +14,6 @@ table {
 	border-collapse:collapse;
 }
 
-tr.yellow td {
-    background: #FFC;
-}
-
 a {
 	color: #993300;
 }
@@ -157,7 +153,7 @@ a:hover {
     height:384px;  
     width:408px;  
     background:#FFFFFF;  
-    border:2px solid #cecece;  
+    border:3px solid #cecece;  
     z-index:2;  
     padding:12px;  
     font-size:13px;  
@@ -174,10 +170,10 @@ a:hover {
 }  
 
 #popupContactClose{  
-    font-size:14px;  
+    font-size:15px;  
     line-height:14px;  
     right:6px;  
-    top:4px;  
+    top:4px; 
     position:absolute;  
     color:#6fa5fd;  
     font-weight:700;  

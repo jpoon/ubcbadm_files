@@ -56,6 +56,7 @@ function centerPopup(){
 
 //CONTROLLING EVENTS IN jQuery
 $(document).ready(function(){
+
 	//LOADING POPUP
 	$("#footer").click(function(){
 		//centering with css

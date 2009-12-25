@@ -4,8 +4,7 @@
     <p id="contactArea">  
         If you think the badminton club is <i>absolutely-most-indefinitely-the-most-fun-and-awesomely-awesome-club-ever</i>!
         or if you have any ideas or suggestions on how we might better ourselves, feel free to let us know. 
-        <br/><br/>
-        <table>
+        <table cellpadding="2px">
         <tr>
             <td>Email:</td>
             <td><a href="mailto: ubc.badm@gmail.com">ubc.badm@gmail.com</a></td>
@@ -18,7 +17,7 @@
     </p>  
 </div>  
 <div id="backgroundPopup"></div>
- 
+
 <div id="footer">
-    Contact Us
+    <a href="#">Contact Us</a>
 </div>
