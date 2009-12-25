@@ -47,7 +47,7 @@ require_once ('include/html_head.php');
 		    </table>
 
             <h1>Event Calendar</h1>
-            <iframe src="//www.google.com/calendar/embed?showTitle=0&amp;height=450&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ra82akobth6fn1qg7pbgnlj5vg%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=America%2FVancouver" style=" border-width:0 " width="755" height="450" frameborder="0" scrolling="no"></iframe>
+            <iframe src="www.google.com/calendar/embed?showTitle=0&amp;height=450&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ra82akobth6fn1qg7pbgnlj5vg%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=America%2FVancouver" style=" border-width:0 " width="755" height="450" frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
 	<?php

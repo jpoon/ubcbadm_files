@@ -21,7 +21,7 @@
     </p>
 
     <p>Email: <a href="mailto: ubc.badm@gmail.com">ubc.badm@gmail.com</a></p>
-    <p><a href="http://www.facebook.com/group.php?gid=17284952088">Facebook Group</a></p>
+    <p>Visit our <a href="http://www.facebook.com/group.php?gid=17284952088">Facebook Group</a></p>
 </div> 
 
 <div id="footer">
