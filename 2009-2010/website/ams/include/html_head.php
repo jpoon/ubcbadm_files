@@ -37,8 +37,8 @@ echo $htmlTitle;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" />
 <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon" />
-<script type="text/javascript" src="scripts/autoExpand.js" ></script>
-<?php # Google Analytics ?>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/autoExpand.js"></script>
 <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

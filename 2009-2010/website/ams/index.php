@@ -8,7 +8,6 @@ require_once ('include/html_head.php');
     ?>
 
     <div id="contentContainer">
-
         <?php
         require_once ('include/navigation.php');
     	?>	
@@ -31,8 +30,6 @@ require_once ('include/html_head.php');
     	    </div>
 
             <div id="rightcontent">
-
- 
                 <h2>Last Gym Night of Term 1</h2> 
                 <span class="date">Dec. 4, 2009</span> 
                 The last gym night of term 1 will be Dec. 4 which is also the last day of classes.

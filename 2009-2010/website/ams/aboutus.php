@@ -12,6 +12,7 @@ require_once ('include/html_head.php');
         <?php
         require_once ('include/navigation.php');
     	?>	
+        <script type="text/javascript" src="scripts/popup.js"></script>
     
         <div id="content">
 	    	<h1>About Us</h1>
@@ -79,15 +80,6 @@ require_once ('include/html_head.php');
     			</tr>
 
             </table>
-
-    		<h1>Contact Us</h1>
-	    	<p>If you think the badminton club is
-		    <i>absolutely-most-indefinitely-the-most-fun-and-awesomely-awesome-club-ever</i>!
-            or if you have any ideas or suggestions on how we might better ourselves, feel 
-            free to let us know. Our email is 
-            <a href="mailto: ubc.badm@gmail.com">ubc.badm@gmail.com</a> or poke us on 
-            <a href="http://www.facebook.com/group.php?gid=17284952088">Facebook</a>.
-    		</p>
         </div>
     </div>
 	<?php
