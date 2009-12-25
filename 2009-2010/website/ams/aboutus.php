@@ -12,7 +12,6 @@ require_once ('include/html_head.php');
         <?php
         require_once ('include/navigation.php');
     	?>	
-        <script type="text/javascript" src="scripts/popup.js"></script>
     
         <div id="content">
 	    	<h1>About Us</h1>

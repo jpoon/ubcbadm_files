@@ -19,5 +19,5 @@
 <div id="backgroundPopup"></div>
 
 <div id="footer">
-    <a href="#">Contact Us</a>
+    <div id="footerTxt"><a href="#">Contact Us</a></div>
 </div>
