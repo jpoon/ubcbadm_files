@@ -10,6 +10,8 @@
                     }
                 }
             });
+
+            $("#dialog").dialog('open');
         });
     });
 </script>
