@@ -1,6 +1,6 @@
 <div id="header">
 <div id="searchBox">
-<form action="http://www.ams.ubc.ca/clubs/badminton/search.php" id="cse-search-box">
+<form action="search.php" id="cse-search-box">
     <div>
         <input type="hidden" name="cx" value="017546817332389795154:epkm026fcko" />
         <input type="hidden" name="cof" value="FORID:11" />
