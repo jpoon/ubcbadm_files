@@ -24,6 +24,7 @@
 
     <p>Email: <a href="mailto: ubc.badm@gmail.com">ubc.badm@gmail.com</a></p>
     <p>Visit our <a href="http://www.facebook.com/group.php?gid=17284952088">Facebook Group</a></p>
+    <p>Spread the word via <a href="http://twitter.com/home?status=Currently reading www.ams.ubc.ca/clubs/badminton" title="Share on Twitter">Twitter</a></p>
 </div> 
 
 <div id="footer">

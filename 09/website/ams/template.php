@@ -42,7 +42,7 @@ require_once ('include/html_head.php');
             <?php endif; ?>
 
       </div>
-        <div class="clear"></div>
+      <div class="clear"></div>
     </div>
     <?php
     require_once ('include/footer.php');
