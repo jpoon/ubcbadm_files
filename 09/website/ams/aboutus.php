@@ -26,19 +26,38 @@ $content= array(
 
                     <div id="accordion" style="width:300px;">
                         <p><a href="#">President</a></p>
-                        <div>Jason Poon</div>
+                        <div>
+                            <ul><li>Jason Poon</li></ul>
+                        </div>
                         <p><a href="#">Vice-President</a></p>
-                        <div>Bernard Cheung</div>
+                        <div>
+                            <ul><li>Bernard Cheung</li></ul></div>
                         <p><a href="#">Finance</a></p>
-                        <div>Nina Kao</div>
+                        <div>
+                            <ul><li>Nina Kao</li></ul>
+                        </div>
                         <p><a href="#">Membership</a></p>
-                        <div>Patrick Shyong</div>
+                        <div>
+                            <ul><li>Patrick Shyong</li></ul>
+                        </div>
                         <p><a href="#">Public Relations</a></p>
-                        <div>Andrew Li, Kiki Chan, Stephanie Lee</div>
+                        <div>
+                            <ul><li>Andrew Li</li>
+                                <li>Kiki Chan</li>
+                                <li>Stephanie Lee</li></ul>
+                        </div>
                         <p><a href="#">Special Events</a></p>
-                        <div>Andy Chow, Peter Liang, Zonghe Chua</div>
+                        <div>
+                            <ul><li>Andy Chow</li>
+                                <li>Peter Liang</li>
+                                <li>Zonghe Chua</li></ul>
+                        </div>
                         <p><a href="#">Operations</a></p>
-                        <div>Alvin Tse, Justin Lew, Michelle Tran</div>
+                        <div>
+                            <ul><li>Alvin Tse</li>
+                                <li>Justin Lew</li>
+                                <li>Michelle Tran</li></ul>
+                        </div>
                     </div>'
     )
 );
