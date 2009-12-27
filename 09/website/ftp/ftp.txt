@@ -24,4 +24,28 @@ mkdir styles
 cd styles
 mput ..\ams\styles\*.css
 
+cd ..
+
+mkdir theme
+cd theme
+mput ..\ams\theme\*.css
+
+mkdir images
+cd images
+mput ..\ams\theme\images\*.png
+
+cd ..\..
+
+mkdir savant
+cd savant
+mput ..\ams\savant\*.php
+
+mkdir Savant3
+cd Savant3
+mput ..\ams\savant\Savant3\*.php
+
+mkdir resources
+cd resources
+mput ..\ams\savant\Savant3\resources\*.php
+
 bye
