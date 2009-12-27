@@ -5,7 +5,7 @@
                 bgiframe: true,
                 modal: true,
                 buttons: {
-                    Ok: function() {
+                    Close: function() {
                         $(this).dialog('close');
                     }
                 }
