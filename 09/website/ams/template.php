@@ -30,6 +30,11 @@ require_once ('include/html_head.php');
             <?php endif; ?>
 
             <?php if (isset($this->announcements)): ?>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#rightcontent").show("drop", { direction: "down" }, 1500);
+                });
+            </script>
             <div id="rightcontent">
             <?php if (is_array($this->announcements)): ?>
                     <?php foreach ($this->announcements as $key => $val): ?>
