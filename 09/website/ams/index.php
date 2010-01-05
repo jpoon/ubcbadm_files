@@ -25,6 +25,11 @@ $content= array(
 
 $announcements= array(
     array(
+        'title' => 'Term 2 Gym Times',
+        'date' => 'Ongoing for 2nd Term 2010',
+        'text' => 'For the updated term 2 gym times, please refer to this <a href="schedule.php">page</a>'
+    ),
+    array(
         'title' => 'Doubles League',
         'date' => 'Ongoing for 2nd Term 2010',
         'text' => 'What\'s it about? Click <a href="doublesleague.php">here</a> for more information!'

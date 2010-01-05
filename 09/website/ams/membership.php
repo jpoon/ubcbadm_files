@@ -6,7 +6,7 @@ $tpl = new Savant3();
 $content= array(
     array(
         'title' => 'How to Join',
-        'text'  => '<img src="imgs/serve.jpg" id="imgServe" alt="UBC Badminton" />            
+        'text'  => '<img src="imgs/serve.jpg" id="imgServe" alt="UBC Badminton" />
                     <p>Drop by the UBC Badminton Club booth during Club Week to join! Club
                     Week typically occurs in <u>late September</u>.</p>
                     <p>Annual membership costs are listed below:</p>
