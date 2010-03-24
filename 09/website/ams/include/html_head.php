@@ -28,6 +28,10 @@ switch(basename($_SERVER['PHP_SELF'], ".php" )) {
     case "photo":
         $htmlTitle .= " - Photo Gallery";
         break;    
+
+    case "search":
+        $htmlTitle .= " - Search Results";
+        break;
 }
 echo $htmlTitle;
 ?>
