@@ -8,24 +8,24 @@ $content= array(
         'title' => 'Gym Schedule',
         'text'  => '<img src="imgs/osbourne.jpg" alt="Osbourne Gym" id="imgOsbourne" />
 
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#open_location").click(function() { 
-                                $("#location").dialog({ 
-                                    bgiframe: true,
-                                    modal: true,
-                                    height: 550,
-                                    width: 500,
-                                    buttons: {
-                                        Close: function() {
-                                            $(this).dialog("close");
-                                        }
-                                    }
-                                });
-                                $("#location").dialog("open"); 
-                            });
-                        });
-                    </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#open_location").click(function() { 
+            $("#location").dialog({ 
+                bgiframe: true,
+                modal: true,
+                height: 550,
+                width: 500,
+                buttons: {
+                    Close: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#location").dialog("open"); 
+        });
+    });
+</script>
 
                     <div id="location" style="display:none;" title="Robert F. Osbourne Center (Gym A) - Location">
                         <p>6108 Thunderbird Boulevard<br/>
