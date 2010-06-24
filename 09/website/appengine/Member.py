@@ -4,6 +4,7 @@ from google.appengine.ext import db
 
 class Member(db.Model):
     maxMembers = 150
+
     createDate = db.DateTimeProperty(auto_now_add=True)
     firstName = db.StringProperty(required=True)
     lastName = db.StringProperty(required=True)
@@ -15,18 +16,13 @@ class Member(db.Model):
     level = db.StringProperty(required=True, choices=set(["Beginner", "Intermediate I", "Intermediate II", "Advanced"]))
     memberNo = db.IntegerProperty()
     emailHash = db.StringProperty()
-    emailVerified = db.BooleanProperty()
 
     def Create(self):
         hash = hashlib.md5()
         hash.update(self.email)
         self.emailHash = hash.hexdigest()[:10]
-        self.emailVerified = False
         self.put()
         logging.info('Creating member with id %i' % self.memberNo)
-
-    def getActivateUrl(self, handler):
-        return 'http://ubc-badm.appspot.com/activate?verify=' + self.emailHash
 
     @staticmethod
     def getAllEmails():

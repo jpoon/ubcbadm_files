@@ -5,7 +5,6 @@ import itertools
 import hashlib
 from SendMail import *
 from Member import *
-from Template import *
 from datetime import datetime
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
@@ -20,7 +19,12 @@ class FormField(object):
         self.formValue = value
         self.formType = formType
         self.formOptions = formOptions
-     
+
+class Url(object):
+    def __init__(self, urlName, url):
+        self.urlName = urlName
+        self.url = url
+
 class RegisterPage(webapp.RequestHandler):
     @staticmethod
     def getNext(iterable):
@@ -28,7 +32,6 @@ class RegisterPage(webapp.RequestHandler):
             value =  iterable.next()
         except StopIteration:
             value = '' 
-
         return value
 
     def getInput(self, formId):
@@ -204,8 +207,6 @@ class DonePage(webapp.RequestHandler):
 
             msgBody =   'Hello ' + member.firstName + ' (aka. member number <b>' + str(member.memberNo) + '</b>), \n\n' \
                         '<p>Welcome to the world of UBC Badminton! ' \
-                        'In order to receive further UBC Badminton Club emails, please verify your email by clicking the following link: ' \
-                        + member.getActivateUrl(self) + '.</p>' \
                         '<p>Here is some useful information regarding upcoming events:</p>' \
                         '<p><u>Gym Nights:</u></p>' \
                         '<p>For term 1, gym nights will be Tuesdays from 4-6pm and Fridays from 6:30-11pm. ' \
@@ -255,33 +256,9 @@ class DonePage(webapp.RequestHandler):
             path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
             self.response.out.write(template.render(path, template_values))
 
-class ActivationPage(webapp.RequestHandler):
-    def get(self):
-        hash = self.request.get("verify")
-
-        member = Member.verifyEmail(hash)
-
-        if member != None:
-            pageContent =  member.firstName + ', <br/><br/>' \
-                           'Thank you for verifying your email address. ' \
-                           'Be sure to check your inbox frequently for UBC Badminton Club news!'
-            logging.info('Member - %s verified' % member.email)
-
-        else:
-            pageContent =  'Uh oh! Spagetti-O! <br/>' \
-                           'We are not able to verify this email address. Contact us for further support.'
-
-        template_values = {
-            'content': pageContent,
-        }
-
-        path = os.path.join(os.path.dirname(__file__), 'templates', 'basic.html')
-        self.response.out.write(template.render(path, template_values))
-
 application = webapp.WSGIApplication(   [('/register', RegisterPage),
                                          ('/register/confirm', ConfirmPage),
-                                         ('/register/done', DonePage),
-                                         ('/activate', ActivationPage)],
+                                         ('/register/done', DonePage)],
                                         debug=True)
 
 def main():
